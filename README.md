@@ -25,8 +25,13 @@ Genus produces a lot of log files, these are stored in the folder where you invo
 This is what the folder structure looks like:
 ![image](https://user-images.githubusercontent.com/50336652/229774072-f75e9bed-9db7-40cb-95dd-443b0389aa7f.png)
 
-The tool will take about 4 minutes to complete the synthesis run. Do not close the tool just yet, we will collect some results from it in the next task.
+Did the script start executing? The tool will take about 4 minutes to complete the synthesis run. Do not close the tool just yet, we will collect some results from it in the next task.
 
-## Task 2
-Let's make sure you have access to the 
+## Task 3
+We are now going to do some analysis. First, we will check whether the design is passing timing. The script defines a clock frequency of 1GHz, which is not very aggressive for this 7nm technology. In order to check timing, we issue the command *report_timing*. 
+
+![image](https://user-images.githubusercontent.com/50336652/229806406-71bacc2d-e75a-4855-8486-6b49684f7de8.png)
+
+
+Most of the time we will be interested in checking area, timing, power, so go ahead and remove the comments at the end of script. This way we will always get the values reported any time we run it.
 
