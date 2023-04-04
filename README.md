@@ -6,12 +6,16 @@ The tutorial is built around Cadence Genus version 21. Most of the commands are 
 
 # Tasks
 ## Task 1 - Starting the tool
-Make sure you can start Genus. If your setup is right, typing genus on a terminal will start the tool. To exit the tool, type exit or press CTRL+C twice. If the installation is correct, you will see something like this on the screen:
+Make sure you can start Genus. If your setup is right, typing *genus* on a terminal will start the tool. To exit the tool, type exit or press CTRL+C twice. If the installation is correct, you will see something like this on the screen:
 ![image](https://user-images.githubusercontent.com/50336652/229764141-250d55b3-77b4-4d17-893f-3603f2c91a6b.png)
 
-It is also important to make sure you have access to genus documentation. Inside the genus terminal, type cdnshelp. If your setup is properly installed, a new window will open with Cadence's help navigation system. It looks like this: 
+It is also important to make sure you have access to genus documentation. Inside the genus terminal, type *cdnshelp &*. If your setup is properly installed, a new window will open with Cadence's help navigation system. It looks like this: 
 
 ![image](https://user-images.githubusercontent.com/50336652/229774697-710f598b-7d57-4f48-9c0d-6020b84b9d8e.png)
+
+On the top of the image there is a search box. You can use it to find specific commands or terms. For instance, try searching for the word "clock". It will give you thousands of hits. You can search for the command "report_clock" and then the search results will be much narrower.
+
+Can you find the report_clocks documentation page?
 
 
 ## Task 2 - Our first synthesis run
