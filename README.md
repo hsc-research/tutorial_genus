@@ -105,7 +105,15 @@ Did the area increase? By how much? How about power?
 
 Go ahead and write down the power values you obtained. We will need those for comparison later. We also want to collect cell count and area values for comparisons.
 
-# Task 6 - Synthesis effort
+# Task 6 - Clock gating
+Bla
+
+`set_db lp_insert_clock_gating true`
+
+# Task 7 - Max frequency
+Bla
+
+# Task X - Synthesis effort
 Genus supports multiple efforts level in its synthesis, mapping, and optimizing engines (syn_gen, syn_map, and syn_opt). The idea is that you can ask the tool to work harder on the problem and this will incur a penalty in execution time. Since we are doing a relatively small design, having high effort is a no brainer. So go ahead and set the following variables to high in your script:
 
 `set_db syn_generic_effort	high`
