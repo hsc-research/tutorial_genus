@@ -103,4 +103,6 @@ Now, what happened to our area/power? Because the design is now more constrained
 
 Did the area increase? By how much? How about power?
 
+Go ahead and write down the power values you obtained. We will need those for comparison later. We also want to collect cell count and area values for comparisons.
+
 # Task 6 - 
