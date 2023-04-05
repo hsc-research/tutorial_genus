@@ -49,8 +49,15 @@ Next, let's have a look at area. There are two commands for that, `report_area` 
 > How to read this image: The design has a top-level module named sha256. The design contains 8740 standard cells which occupy 21323 um^2. This is a precise number, obtained by adding the area of each individual cell. Routing all of these cells will incur more area, which Genus estimates at 7926 um^2. This number is not precise since we do not have a layout at this point. The total area is the sum of the two areas. IMPORTANT: in academic papers, both cell area and total are used and it is not always clear which one is which. It is always good to be clear about what you are reporting.
 
 ![image](https://user-images.githubusercontent.com/50336652/230020777-76fd8bcd-1234-403d-a7ad-34ec8122d553.png)
+
 > How to read this image: The design uses cells from different libraries. This is not really relevant in this case because the library designers decided to separate their libraries into different files. In practical terms, there is only one standard cell library being used and it is for regular Vth (RVT). Next, we see how the area is distributed among different cell types. Not surprisingly, flip-flops account for 51% of the area, which is really typical. Also remember that flip-flops are large cells, often the largest cell in a whole library.
 
+Finally, let's have a look at power. The command we are going to use is `report_power`. The command output looks like this:
+
+
+![image](https://user-images.githubusercontent.com/50336652/230052569-6c86afaa-f2db-4d10-8478-92a5d90489da.png)
+
+> How to read this image: Power consumptions has 3 components: Leakage (or static), Internal, and Switching. Internal and switching are dynamic in nature, meaning that this is power consumed when the circuit is actively computing. In other words, the power consumption here depends on the inputs of the circuit. Internal power is the power consumed by the standard cells themselves. Switching power is related to capacitance charge/discharge of the wires that connect the cells together. Power consumption can come from many components of the circuit, including memories, flip-flops, latches, logic, black boxes, clock distribution, pads, and pm. Because we are not doing physical synthesis, we only have a few of those.
 
 Most of the time we will be interested in checking area, timing, power, so go ahead and remove the comments at the end of script. This way we will always get the values reported any time we run it.
 
