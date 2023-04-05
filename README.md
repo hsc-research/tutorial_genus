@@ -110,6 +110,15 @@ Bla
 
 `set_db lp_insert_clock_gating true`
 
+`report_gates`
+`report_clock_gating`
+
+![image](https://user-images.githubusercontent.com/50336652/230105379-783c35c0-7e93-43c8-8843-4bc4b2dd6ec3.png)
+
+
+Did the power increase or decrease? By how much? How about timing, was it compromised?
+***area also goes down, this is hard to explain, but it is due to ICG cells.***
+
 # Task 7 - Max frequency
 Bla
 
@@ -124,7 +133,7 @@ Genus supports multiple efforts level in its synthesis, mapping, and optimizing 
 
 Now run your synthesis script again. You have to close Genus and start from scratch, these settings do not work well if applied after the design has already been synthesized. 
 
-Did the area increase? By how much? How about power? How about timing? Write down your results and compare against those from Task 5.
+How about timing? Write down your results and compare against those from Task 5.
 
 
 
