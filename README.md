@@ -60,11 +60,12 @@ Finally, let's have a look at power. The command we are going to use is `report_
 
 Most of the time we will be interested in checking area, timing, power, so go ahead and remove the comments at the end of script. This way we will always get the values reported any time we run it.
 
-Did you get the same values for area/power/timing as shown here? If so, let's move on!
+Did you get the same values for area and power? If so, let's move on! Timing should not match because I created an artificial scenario to show negative timing slack. Your design should have a positive or zero slack. Is it right?
 
 ## Task 4 - Input delay
 Now that we have a reference script and we know how to report on the characteristics of a circuit, let's try some more advanced commands and options. The first thing we are going to do is revise our clock specification. We have, so far, defined a clock:
 `create_clock -name "clk" -period 1000 [get_ports clk]`
 This is hardly sufficient. It works well for paths that are reg-to-reg since they are bound by clock on the arrival and destinations ends. But it does not say anything about input to reg paths and output to reg paths. By default, the tool cannot assume anything about these paths. You, the designer, have to tell the tool the behavior that you want. In most cases, specially when doing synthesis of a block that is part of a larger chip, all inputs are synchronous to the clock. That means that whatever other logic there is that is generating inputs for your block, it also works on the same clock domain. In order to achieve this behavior, we are going to use the `set_input_delay` command like this:
+
 `set_input_delay -clock clk 1 [all_inputs]`
 
