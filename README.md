@@ -88,7 +88,7 @@ Go ahead and apply these commands to your design in the same Genus session. We a
 
 `set_output_delay -clock clk 300 [all_outputs]`
 
-When we have our setup right, we can now report timing again and see what we get...
+When we have our setup right, we can now report timing again and see what we get... Notice that this time we do not need the unconstrained option because the path is now properly constrained.
 
 ![image](https://user-images.githubusercontent.com/50336652/230077524-01f61c76-5139-446f-b81c-915f00f6c3c0.png)
 
