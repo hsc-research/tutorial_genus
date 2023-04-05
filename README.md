@@ -85,6 +85,7 @@ There is also an analogous command for the outputs of our block. The command loo
 Go ahead and apply these commands to your design in the same Genus session. We are gonna use a value of 300ps for input and output delays. This number is a guess because we do not know the environment in which our block will be operating. 
 
 `set_input_delay -clock clk 300 [all_inputs]`
+
 `set_output_delay -clock clk 300 [all_outputs]`
 
 When we have our setup right, we can now report timing again and see what we get...
