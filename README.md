@@ -62,17 +62,16 @@ Most of the time we will be interested in checking area, timing, power, so go ah
 
 Did you get the same values for area and power? If so, let's move on! Timing should not match because I created an artificial scenario to show negative timing slack. Your design should have a positive or zero slack. Is it right?
 
-## Task 4 - Input delay
+## Task 4 - Input/output delay
 Now that we have a reference script and we know how to report on the characteristics of a circuit, let's try some more advanced commands and options. The first thing we are going to do is revise our clock specification. We have, so far, defined a clock:
 `create_clock -name "clk" -period 1000 [get_ports clk]`
 
 This is hardly sufficient. It works well for paths that are reg-to-reg since they are bound by clock on the arrival and destinations ends. But it does not say anything about input to reg paths and output to reg paths. By default, the tool cannot assume anything about these paths. In the same Genus session, we can verify that there is an issue with our inputs with the aid of `report_timing`. In the terminal, use the following command:
 `report_timing -from cs`
 
-Did it work? It should not have worked because the tool cannot find a constrained path that starts at the "cs" input. There is a workaround to force the tool to time this path by issuing the command `report_timing -from cs -unconstrained`. The outcome should look like this:
+Did it work? It should not have worked because the tool cannot find a constrained path that starts at the "cs" input. It should have said "Some unconstrained paths have not been displayed". There is a workaround to force the tool to time this path by issuing the command `report_timing -from cs -unconstrained`. The outcome should look like this:
 
-
-
+![image](https://user-images.githubusercontent.com/50336652/230076564-efa482d7-97a6-454e-b98f-17dd20fedf86.png)
 
 You, the designer, have to tell the tool the behavior that you want. In most cases, when doing synthesis of a block that is part of a larger chip, all inputs are synchronous to the clock. That means that whatever other logic there is that is generating inputs for your block, it also works on the same clock domain. In order to achieve this behavior, we are going to use the `set_input_delay` command like this:
 
@@ -81,7 +80,26 @@ You, the designer, have to tell the tool the behavior that you want. In most cas
 
 There is also an analogous command for the outputs of our block. The command looks like this:
 `set_output_delay -clock clk delay_value [all_outputs]`
+> How to interpret this command: we are telling Genus that all outputs of our design have a relationship with a clock named "clk" and that this relationship has to be respected. This means that every output must become available (stable) delay_value time units before the next clock edge. This amount is discounted from our timing windown when doing timing analysis.
 
-What happned to our area/power? Because the design is now more constrained, the expectation is that we will have to consume more power and more area to make sure all paths meet timing. Go ahead and check if that is true with the commands `report_area` and `report_power`.
+Go ahead and apply these commands to your design in the same Genus session. We are gonna use a value of 300ps for input and output delays. This number is a guess because we do not know the environment in which our block will be operating. 
+
+`set_input_delay -clock clk 300 [all_inputs]`
+`set_output_delay -clock clk 300 [all_outputs]`
+
+When we have our setup right, we can now report timing again and see what we get...
+
+![image](https://user-images.githubusercontent.com/50336652/230077524-01f61c76-5139-446f-b81c-915f00f6c3c0.png)
+
+Did you find the same violation in your design? There should be a violating path that starts from "cs" and ends in "read_data". We are going to fix this in the next task!
+
+# Task 5 - Run synthesis again
+In order to fix our timing, we have to apply the input and output delays from the start. We are going to close Genus, edit our reference script such that it includes the input and output delay constraints, and start Genus again with the same script.
+
+You can check timing now, there should be no violating paths. Correct?
+
+Now, what happened to our area/power? Because the design is now more constrained, the expectation is that we will have to consume more power and more area to make sure all paths meet timing. Go ahead and check if that is true with the commands `report_area` and `report_power`.
 
 Did the area increase? By how much? How about power?
+
+# Task 6 - 
