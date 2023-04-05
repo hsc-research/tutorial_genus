@@ -65,7 +65,23 @@ Did you get the same values for area and power? If so, let's move on! Timing sho
 ## Task 4 - Input delay
 Now that we have a reference script and we know how to report on the characteristics of a circuit, let's try some more advanced commands and options. The first thing we are going to do is revise our clock specification. We have, so far, defined a clock:
 `create_clock -name "clk" -period 1000 [get_ports clk]`
-This is hardly sufficient. It works well for paths that are reg-to-reg since they are bound by clock on the arrival and destinations ends. But it does not say anything about input to reg paths and output to reg paths. By default, the tool cannot assume anything about these paths. You, the designer, have to tell the tool the behavior that you want. In most cases, specially when doing synthesis of a block that is part of a larger chip, all inputs are synchronous to the clock. That means that whatever other logic there is that is generating inputs for your block, it also works on the same clock domain. In order to achieve this behavior, we are going to use the `set_input_delay` command like this:
 
-`set_input_delay -clock clk 1 [all_inputs]`
+This is hardly sufficient. It works well for paths that are reg-to-reg since they are bound by clock on the arrival and destinations ends. But it does not say anything about input to reg paths and output to reg paths. By default, the tool cannot assume anything about these paths. In the same Genus session, we can verify that there is an issue with our inputs with the aid of `report_timing`. In the terminal, use the following command:
+`report_timing -from cs`
 
+Did it work? It should not have worked because the tool cannot find a constrained path that starts at the "cs" input. There is a workaround to force the tool to time this path by issuing the command `report_timing -from cs -unconstrained`. The outcome should look like this:
+
+
+
+
+You, the designer, have to tell the tool the behavior that you want. In most cases, when doing synthesis of a block that is part of a larger chip, all inputs are synchronous to the clock. That means that whatever other logic there is that is generating inputs for your block, it also works on the same clock domain. In order to achieve this behavior, we are going to use the `set_input_delay` command like this:
+
+`set_input_delay -clock clk delay_value [all_inputs]`
+> How to interpret this command: we are telling Genus that all inputs of our design have a relationship with a clock named "clk" and that this relationship has to be respected. This means that every input becomes available (stable) delay_value time units after the clock edge. This amount is discounted from our timing windown when doing timing analysis.
+
+There is also an analogous command for the outputs of our block. The command looks like this:
+`set_output_delay -clock clk delay_value [all_outputs]`
+
+What happned to our area/power? Because the design is now more constrained, the expectation is that we will have to consume more power and more area to make sure all paths meet timing. Go ahead and check if that is true with the commands `report_area` and `report_power`.
+
+Did the area increase? By how much? How about power?
