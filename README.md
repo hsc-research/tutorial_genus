@@ -124,6 +124,7 @@ So go ahead, modify your synthesis script to include this command and run the en
 Now, after clock gating, did the power increase or decrease? By how much? How about timing, was it compromised?
 
 How about area? Did it increase or decrease? This result can be hard to interpret, but it has to do with how clock gating cells are built. Here is the schematic of one of those cells:
+
 ![image](https://user-images.githubusercontent.com/50336652/230105379-783c35c0-7e93-43c8-8843-4bc4b2dd6ec3.png)
 What happens is that some enable condition that was potentially part of your critical path can be moved to the clock path. This can be interesting for timing, say now you have one less AND gate in your critical path. Perhaps you do not need to buffer that critical path as much as before and perhaps this can lead to area savings. We can check whether that is true. First, let us generate a new gate report for this design using `report gates > gates_from_task_6.rep`. Open this report side by side with the previous report from Task 5 and compare them. What happened to the buffers? What happened to the inverters? We can look at the size and number of inverters/buffers to determine how hard did the tool work on optimizing the design. It is not a precise science, but it is good enough for what we are trying to do.
 
