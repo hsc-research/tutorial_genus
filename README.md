@@ -126,10 +126,17 @@ Now, after clock gating, did the power increase or decrease? By how much? How ab
 How about area? Did it increase or decrease? This result can be hard to interpret, but it has to do with how clock gating cells are built. Here is the schematic of one of those cells:
 
 ![image](https://user-images.githubusercontent.com/50336652/230105379-783c35c0-7e93-43c8-8843-4bc4b2dd6ec3.png)
+
 What happens is that some enable condition that was potentially part of your critical path can be moved to the clock path. This can be interesting for timing, say now you have one less AND gate in your critical path. Perhaps you do not need to buffer that critical path as much as before and perhaps this can lead to area savings. We can check whether that is true. First, let us generate a new gate report for this design using `report gates > gates_from_task_6.rep`. Open this report side by side with the previous report from Task 5 and compare them. What happened to the buffers? What happened to the inverters? We can look at the size and number of inverters/buffers to determine how hard did the tool work on optimizing the design. It is not a precise science, but it is good enough for what we are trying to do.
 
 # Task 7 - Max frequency
-Very often we are interested in finding what is the max frequency of operation of a circuit. The tools cannot give this value directly to you, the process is actually iteractive. You have to try one frequency, see if it passes timing, rinse and repeat.
+Very often we are interested in finding what is the max frequency of operation of a circuit. The tools cannot give this value directly to you, the process is actually iteractive. You have to try one frequency, see if it passes timing, rinse and repeat. You stop doing this when you get a timing slack of 0. However, notice that any design that passes timing, whether it is at 1MHz or at 1GHz, will have a slack of zero. In other words, you have to chase the hardest zero possible. 
+
+Just because the process is iterative, it does not mean we have to blindly search for a magical frequency number. You can start with small increments in frequency. Let's say we take our period of 1ns and make it 900ps. Will the design still pass timing? Go ahead and modify your synthesis script and try it out.
+
+What happened to area/timing/power/gate count? Write down these values before we move to the next task.
+
+
 
 # Task X - Synthesis effort
 Genus supports multiple efforts level in its synthesis, mapping, and optimizing engines (syn_gen, syn_map, and syn_opt). The idea is that you can ask the tool to work harder on the problem and this will incur a penalty in execution time. Since we are doing a relatively small design, having high effort is a no brainer. So go ahead and set the following variables to high in your script:
