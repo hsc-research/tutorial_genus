@@ -134,7 +134,12 @@ Very often we are interested in finding what is the max frequency of operation o
 
 Just because the process is iterative, it does not mean we have to blindly search for a magical frequency number. You can start with small increments in frequency. Let's say we take our period of 1ns and make it 900ps. Will the design still pass timing? Go ahead and modify your synthesis script and try it out.
 
-What happened to area/timing/power/gate count? Write down these values before we move to the next task.
+What happened to area/timing/power/gate count? Write down these values before we move to the next step. You should have noticed an increase in total power but almost no increase in static power. Can you understand why?
+
+Next, we could continue to do small increases in frequency until we converge on a final value. This is a fine approach used quite often and you might need ~5 or so synthesis runs to converge. But it is not the only approach.
+
+## The impossible synthesis
+We are going to try something different. We are gonna set a frequency target that is very very high and we are going to expect that the tool will not be able to pass timing. Then we are going to measure by how much we failed to pass timing and subtract that different from our clock period. This approach is not perfect because the synthesis tools have different behaviors depending on how far from the target they are. In principle, setting an impossible target may lead the tool to not optimize it very well since it knows it will never get near the target. With that caution in mind, let's set the clock period to 500ps and see what happens. For that, we are going to use the command `create_clock -name "clk" -period 500 [get_ports clk]`.
 
 
 
