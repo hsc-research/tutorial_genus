@@ -148,21 +148,23 @@ After a few minutes, you should get a result like this from `report timing`:
 
 What can do next is go back to our synthesis script, change the period to 500+227=727ps and start the process again. This should be a fairly good approximation of the max frequency we can operate this design at, give or take a few picoseconds.
 
-Let's take note again of the design characteristics. Write down the area/timing/power/gate count that you obtained from the current synthesis run.
+Let's take note again of the design characteristics. Write down the area/timing/power/gate count that you obtained from the current synthesis run (even if this circuit does not respect our constraints, the data is interesting for comparison).
 
-# Task X - Synthesis effort
-Genus supports multiple efforts level in its synthesis, mapping, and optimizing engines (syn_gen, syn_map, and syn_opt). The idea is that you can ask the tool to work harder on the problem and this will incur a penalty in execution time. Since we are doing a relatively small design, having high effort is a no brainer. So go ahead and set the following variables to high in your script:
+# Task 8 - Synthesis effort
+Genus supports multiple efforts level in its many internal engines. The idea is that you can ask the tool to work harder on the problem and this will incur a penalty in execution time. By default, most effort-related variables are set to medium. Since we are doing a relatively small design, selecting high effort is a no brainer. So go ahead and set the following variables to high in your script:
 
 `set_db syn_generic_effort	high`
-
 `set_db syn_map_effort	high`
-
 `set_db syn_opt_effort	high`
+`set_db lp_power_analysis_effort high`
+`set_db power_optimization_effort high`
+`set_db design_power_effort high`
+> How to interpret these commands: syn_generic is the first part of the synthesis process and controls how the provided RTL is transformed into a graph for further processing. It also controls how arithmetic operators (+ - / * %) are identified and instantiated in your design.
+> syn_map is the process of transforming the generic graph representation of the design into a set of interconnected standard cells. Thus the name mapping.
+> syn_opt starts the optimization engine of Genus. It has a long list of tricks that it attempts to apply to the design in order to improve timing and reduce area/power. Most of these are proprietary and there is very little you can infer from the logs. Just trust the tool, it will optimize a lot.
+> lp_power_analysis_effort, power_optimization_effort, and design_power_effort are interrelated. They control how much time and effort should the tool spend on power-related optimizations. 
 
-Now run your synthesis script again. You have to close Genus and start from scratch, these settings do not work well if applied after the design has already been synthesized. 
-
-How about timing? Write down your results and compare against those from Task 5.
-
+Now run your synthesis script again. You have to close Genus and start from scratch, these settings do not work well if applied after the design has already been synthesized. What happened to your design? Is it more efficient? Go ahead and annotate the area/timing/power/cell count values that you got.
 
 
 
