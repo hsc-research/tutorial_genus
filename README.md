@@ -171,5 +171,11 @@ Genus supports multiple efforts level in its many internal engines. The idea is 
 
 Now run your synthesis script again. You have to close Genus and start from scratch, these settings do not work well if applied after the design has already been synthesized. What happened to your design? Is it more efficient? Go ahead and annotate the area/timing/power/cell count values that you got.
 
+# Task 9 - Low power design
+Let us assume our design has a very low frequency of operation, something in the range of 1MHz. This is possible in very very constrained environments, perhaps in a passive RFID tag. What happens if you synthesize the design and target 1MHz as frequency? Think about it before you do. What do you expect will happen to area/power/timing/cell count? How about dynamic power vs. static power? 
+
+Run the synthesis script again, but with the aforementioned 1MHz clock (1000000ps period). Collect results and compare. Did you notice how much the contribution of the static power went up? (from 0.5% to almost 40%!)
+
+
 
 
