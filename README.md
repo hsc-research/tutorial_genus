@@ -176,6 +176,10 @@ Let us assume our design has a very low frequency of operation, something in the
 
 Run the synthesis script again, but with the aforementioned 1MHz clock (1000000ps period). Collect results and compare. Did you notice how much the contribution of the static power went up? (from 0.5% to almost 40%!)
 
+What can you do to save more static power if your design is really constrained? Not much. By default, Genus optimizes for static instead of dynamic power. Only RTL changes would help further.
+
+# Task 10 - Don't use statements
+
 
 
 
