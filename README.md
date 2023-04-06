@@ -118,11 +118,15 @@ So go ahead, modify your synthesis script to include this command and run the en
 
 `report_clock_gating`
 
-![image](https://user-images.githubusercontent.com/50336652/230105379-783c35c0-7e93-43c8-8843-4bc4b2dd6ec3.png)
-> How to read this image: 
+![image](https://user-images.githubusercontent.com/50336652/230293798-cae3b692-67a2-4d74-b510-6d4f54cdfc18.png)
+> How to read this image: A total of 20 clock gating cells were introduced. A single cell can be shared by many flip-flops. You can check details of how efficient the clock gating procedure was with the `report_clock_gating` command.
 
-Did the power increase or decrease? By how much? How about timing, was it compromised?
-***area also goes down, this is hard to explain, but it is due to ICG cells.***
+Now, after clock gating, did the power increase or decrease? By how much? How about timing, was it compromised?
+
+How about area? Did it increase or decrease? This result can be hard to interpret, but it has to do with how clock gating cells are built. Here is the schematic of one of those cells:
+![image](https://user-images.githubusercontent.com/50336652/230105379-783c35c0-7e93-43c8-8843-4bc4b2dd6ec3.png)
+What happens is that some enable condition that was potentially part of your critical path can be moved to the clock path. This can be interesting for timing, say now you have one less AND gate in your critical path. Perhaps you do not need to buffer that critical path as much as before and perhaps this can lead to area savings.
+
 
 # Task 7 - Max frequency
 Bla
