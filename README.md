@@ -106,15 +106,20 @@ Did the area increase? By how much? How about power?
 Go ahead and write down the power values you obtained. We will need those for comparison later. We also want to collect cell count and area values for comparisons.
 
 # Task 6 - Clock gating
-Bla
+Clock gating is widely used low-power technique. The idea is that not all flip-flops of your circuit need to toggle at every clock cycle since in many cases they have to hold the same data they were already holding. Synthesis tools are able to automatically infer enable conditions from your source code and created derived clock signals (gated clocks) from it. This is all transparent, the code does not need to be modified by hand.
+
+By default, clock gating is not enabled in Genus. To enable it, use the following command:
 
 `set_db lp_insert_clock_gating true`
 
-`report_gates`
+So go ahead, modify your synthesis script to include this command and run the entire script again. In order to check if it worked, we can use two different commands:
+
+`report_gates` or
+
 `report_clock_gating`
 
 ![image](https://user-images.githubusercontent.com/50336652/230105379-783c35c0-7e93-43c8-8843-4bc4b2dd6ec3.png)
-
+> How to read this image: 
 
 Did the power increase or decrease? By how much? How about timing, was it compromised?
 ***area also goes down, this is hard to explain, but it is due to ICG cells.***
