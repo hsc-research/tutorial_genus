@@ -103,9 +103,35 @@ Now, what happened to our area/power? Because the design is now more constrained
 
 Did the area increase? By how much? How about power?
 
-Go ahead and write down the power values you obtained. We will need those for comparison later. We also want to collect cell count and area values for comparisons.
+Go ahead and write down the power values you obtained. We will need those for comparison later. We also want to collect cell count and area values for comparisons. We will also need to compare the output of `report_gates` so please save it with `report gates > gates_from_task_5.rep`.
 
-# Task 6 - Synthesis effort
+# Task 6 - Clock gating
+Clock gating is widely used low-power technique. The idea is that not all flip-flops of your circuit need to toggle at every clock cycle since in many cases they have to hold the same data they were already holding. Synthesis tools are able to automatically infer enable conditions from your source code and created derived clock signals (gated clocks) from it. This is all transparent, the code does not need to be modified by hand.
+
+By default, clock gating is not enabled in Genus. To enable it, use the following command:
+
+`set_db lp_insert_clock_gating true`
+
+So go ahead, modify your synthesis script to include this command and run the entire script again. In order to check if it worked, we can use two different commands:
+
+`report_gates` or
+
+`report_clock_gating`
+
+![image](https://user-images.githubusercontent.com/50336652/230293798-cae3b692-67a2-4d74-b510-6d4f54cdfc18.png)
+> How to read this image: A total of 20 clock gating cells were introduced. A single cell can be shared by many flip-flops. You can check details of how efficient the clock gating procedure was with the `report_clock_gating` command.
+
+Now, after clock gating, did the power increase or decrease? By how much? How about timing, was it compromised?
+
+How about area? Did it increase or decrease? This result can be hard to interpret, but it has to do with how clock gating cells are built. Here is the schematic of one of those cells:
+
+![image](https://user-images.githubusercontent.com/50336652/230105379-783c35c0-7e93-43c8-8843-4bc4b2dd6ec3.png)
+What happens is that some enable condition that was potentially part of your critical path can be moved to the clock path. This can be interesting for timing, say now you have one less AND gate in your critical path. Perhaps you do not need to buffer that critical path as much as before and perhaps this can lead to area savings. We can check whether that is true. First, let us generate a new gate report for this design using `report gates > gates_from_task_6.rep`. Open this report side by side with the previous report from Task 5 and compare them. What happened to the buffers? What happened to the inverters? We can look at the size and number of inverters/buffers to determine how hard did the tool work on optimizing the design. It is not a precise science, but it is good enough for what we are trying to do.
+
+# Task 7 - Max frequency
+Very often we are interested in finding what is the max frequency of operation of a circuit. The tools cannot give this value directly to you, the process is actually iteractive. You have to try one frequency, see if it passes timing, rinse and repeat.
+
+# Task X - Synthesis effort
 Genus supports multiple efforts level in its synthesis, mapping, and optimizing engines (syn_gen, syn_map, and syn_opt). The idea is that you can ask the tool to work harder on the problem and this will incur a penalty in execution time. Since we are doing a relatively small design, having high effort is a no brainer. So go ahead and set the following variables to high in your script:
 
 `set_db syn_generic_effort	high`
@@ -116,7 +142,7 @@ Genus supports multiple efforts level in its synthesis, mapping, and optimizing 
 
 Now run your synthesis script again. You have to close Genus and start from scratch, these settings do not work well if applied after the design has already been synthesized. 
 
-Did the area increase? By how much? How about power? How about timing? Write down your results and compare against those from Task 5.
+How about timing? Write down your results and compare against those from Task 5.
 
 
 
