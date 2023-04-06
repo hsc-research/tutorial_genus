@@ -139,9 +139,16 @@ What happened to area/timing/power/gate count? Write down these values before we
 Next, we could continue to do small increases in frequency until we converge on a final value. This is a fine approach used quite often and you might need ~5 or so synthesis runs to converge. But it is not the only approach.
 
 ## The impossible synthesis
-We are going to try something different. We are gonna set a frequency target that is very very high and we are going to expect that the tool will not be able to pass timing. Then we are going to measure by how much we failed to pass timing and subtract that different from our clock period. This approach is not perfect because the synthesis tools have different behaviors depending on how far from the target they are. In principle, setting an impossible target may lead the tool to not optimize it very well since it knows it will never get near the target. With that caution in mind, let's set the clock period to 500ps and see what happens. For that, we are going to use the command `create_clock -name "clk" -period 500 [get_ports clk]`.
+We are going to try something different. We are gonna set a frequency target that is very very high and we are going to expect that the tool will not be able to pass timing. Then we are going to measure by how much we failed to pass timing and subtract that different from our clock period. This approach is not perfect because the synthesis tools have different behaviors depending on how far from the target they are. In principle, setting an impossible target may lead the tool to not optimize it very well since it knows it will never get near the target. With that caution in mind, let's set the clock period to 500ps and see what happens. For that, we are going to use the command `create_clock -name "clk" -period 500 [get_ports clk]`. Change that line in your script and fire away. Because the target is very hard, the execution time will increase considerably.
 
+After a few minutes, you should get a result like this from `report timing`:
 
+![image](https://user-images.githubusercontent.com/50336652/230314485-b114bf50-2ceb-4eed-8e30-b5f1869e27a8.png)
+> It looks like we overshot our target by 227ps. 
+
+What can do next is go back to our synthesis script, change the period to 500+227=727ps and start the process again. This should be a fairly good approximation of the max frequency we can operate this design at, give or take a few picoseconds.
+
+Let's take note again of the design characteristics. Write down the area/timing/power/gate count that you obtained from the current synthesis run.
 
 # Task X - Synthesis effort
 Genus supports multiple efforts level in its synthesis, mapping, and optimizing engines (syn_gen, syn_map, and syn_opt). The idea is that you can ask the tool to work harder on the problem and this will incur a penalty in execution time. Since we are doing a relatively small design, having high effort is a no brainer. So go ahead and set the following variables to high in your script:
