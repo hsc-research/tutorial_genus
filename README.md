@@ -154,10 +154,15 @@ Let's take note again of the design characteristics. Write down the area/timing/
 Genus supports multiple efforts level in its many internal engines. The idea is that you can ask the tool to work harder on the problem and this will incur a penalty in execution time. By default, most effort-related variables are set to medium. Since we are doing a relatively small design, selecting high effort is a no brainer. So go ahead and set the following variables to high in your script:
 
 `set_db syn_generic_effort	high`
+
 `set_db syn_map_effort	high`
+
 `set_db syn_opt_effort	high`
+
 `set_db lp_power_analysis_effort high`
+
 `set_db power_optimization_effort high`
+
 `set_db design_power_effort high`
 > How to interpret these commands: syn_generic is the first part of the synthesis process and controls how the provided RTL is transformed into a graph for further processing. It also controls how arithmetic operators (+ - / * %) are identified and instantiated in your design.
 > syn_map is the process of transforming the generic graph representation of the design into a set of interconnected standard cells. Thus the name mapping.
