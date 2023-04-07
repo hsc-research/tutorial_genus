@@ -193,7 +193,7 @@ In some really specific cases, we might want to tell the synthesis tool not to u
 
 First, let's roll back some things. We want to go back to the 708ps clock period and to use only the LVT cells. 
 
-Then, we are going to prevent Genus from using the cell named AOI22xp5_ASAP7_75t_R. This cell is notoriously hard to route because it is very small and contains many inputs. Therefore, it has a high pin density that creates local routing problems. To prevent Genus from using it, we are going to issue the command `set_dont_use AOI22xp5_ASAP7_75t_R true`. Then we are going to run our synthesis script again.
+Then, we are going to prevent Genus from using the cell named AOI22xp33_ASAP7_75t_L. This cell is notoriously hard to route because it is very small and contains many inputs. Therefore, it has a high pin density that creates local routing problems. To prevent Genus from using it, we are going to issue the command `set_dont_use AOI22xp33_ASAP7_75t_L true`. Then we are going to run our synthesis script again.
 
 What happened to cell count/area/power/timing? Make comparisons and write the values down.
 
