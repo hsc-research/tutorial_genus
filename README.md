@@ -176,9 +176,14 @@ Run the synthesis script again, but with the aforementioned 1MHz clock (1000000p
 What can you do to save more static power if your design is really constrained? Not much. By default, Genus optimizes for static instead of dynamic power. Only RTL changes would help further. Or changing the standard cell library...
 
 ## RVT vs LVT vs HVT
-In our reference script, we are making use of RVT cells. Meaning that these cells have a nominal or *R*egular voltage threshold. In most cases, libraries will offer two other cell variants: LVT and HVT. LVT cells have a low voltage threshold and for this reason switch faster and consume more power. HVT cells have a higher voltage threshold and switch slower, but at a reduced power. If our target circuit is really intended to run at 1MHz and we have a slack of thousands of picosends, we can safely switch to an HVT library to save even more power. So let's go ahead and edit our reference script to use only HVT cells. Then run synthesis again for the same 1MHz target. Collect area/power/timing/cell count values and compare with the previous run.
+In our reference script, we are making use of LVT cells. Meaning that these cells have a low voltage threshold. In most cases, libraries will offer two other cell variants: RVT and HVT. 
+> LVT cells have a low voltage threshold and for this reason switch faster and consume more power.
+> HVT cells have a higher voltage threshold and switch slower, but at a reduced power.
+> RVT cells have are a middleground between the two. RVT cells are also called SVT, S=Standard, R=Regular.
 
-Are you saving power by using HVT cells?
+The standard cell library we are working with has 3 different Vt levels: regular, low, super low. If our target circuit is really intended to run at 1MHz and we have a slack of thousands of picosends, we can safely switch to an RVT library to save even more power. So let's go ahead and edit our reference script to use only RVT cells. Then run synthesis again for the same 1MHz target. Collect area/power/timing/cell count values and compare with the previous run.
+
+Are you saving power by using RVT cells?
 
 # Task 10 - Don't use statements
 
