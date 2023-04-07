@@ -171,7 +171,7 @@ Now run your synthesis script again. You have to close Genus and start from scra
 # Task 9 - Low power design
 Let us assume our design has a very low frequency of operation, something in the range of 1MHz. This is possible in very very constrained environments, perhaps in a passive RFID tag. What happens if you synthesize the design and target 1MHz as frequency? Think about it before you do. What do you expect will happen to area/power/timing/cell count? How about dynamic power vs. static power? 
 
-Run the synthesis script again, but with the aforementioned 1MHz clock (1000000ps period). Collect results and compare. Did you notice how much the contribution of the static power went up? (from 0.5% to almost 40%!)
+Run the synthesis script again, but with the aforementioned 1MHz clock (1000000ps period). Collect results and compare. Did you notice how much the contribution of the static power went up? (from less than 1% to more than 85%!)
 
 What can you do to save more static power if your design is really constrained? Not much. By default, Genus optimizes for static instead of dynamic power. Only RTL changes would help further. Or changing the standard cell library...
 
