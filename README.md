@@ -89,12 +89,12 @@ When we have our setup right, we can now report timing again and see what we get
 
 ![image](https://user-images.githubusercontent.com/50336652/230077524-01f61c76-5139-446f-b81c-915f00f6c3c0.png)
 
-Did you find the same violation in your design? There should be a violating path that starts from "cs" and ends in "read_data". We are going to fix this in the next task!
+Did you find a timing violation in your design (maybe not exactly the same as in the image)? There should be a violating path that starts from "cs" and ends in "read_data". We are going to fix this in the next task!
 
 # Task 5 - Run synthesis again
 In order to fix our timing, we have to apply the input and output delays from the start. We are going to close Genus, edit our reference script such that it includes the input and output delay constraints, and start Genus again with the same script.
 
-You can check timing now, there should be no violating paths. Correct?
+You can check timing after the script is done, there should be no violating paths. Correct?
 
 Now, what happened to our area/power? Because the design is now more constrained, the expectation is that we will have to consume more power and more area to make sure all paths meet timing. Go ahead and check if that is true with the commands `report_area` and `report_power`.
 
