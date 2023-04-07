@@ -195,9 +195,9 @@ First, let's roll back some things. We want to go back to the 708ps clock period
 
 Then, we are going to prevent Genus from using the cell named AOI22xp33_ASAP7_75t_L. This cell is notoriously hard to route because it is very small and contains many inputs. Therefore, it has a high pin density that creates local routing problems. To prevent Genus from using it, we are going to issue the command `set_dont_use AOI22xp33_ASAP7_75t_L true`. Then we are going to run our synthesis script again.
 
-What happened to cell count/area/power/timing? Make comparisons and write the values down.
+What happened to cell count/area/power/timing? Make comparisons and write the values down. How is it possible that preventing the use of a single cell increases dynamic power by 20%?
 
-# Task 11 - 
+# Task 11 - Retiming
 
 
 
