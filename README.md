@@ -140,10 +140,10 @@ We are going to try something different. We are gonna set a frequency target tha
 
 After a few minutes, you should get a result like this from `report timing`:
 
-![image](https://user-images.githubusercontent.com/50336652/230314485-b114bf50-2ceb-4eed-8e30-b5f1869e27a8.png)
-> It looks like we overshot our target by 227ps. 
+![image](https://user-images.githubusercontent.com/50336652/230607767-805d9678-0d3b-4573-ab63-8bf076f9d227.png)
+> It looks like we overshot our target by 208ps. 
 
-What can do next is go back to our synthesis script, change the period to 500+227=727ps and start the process again. This should be a fairly good approximation of the max frequency we can operate this design at, give or take a few picoseconds.
+What can do next is go back to our synthesis script, change the period to 500+208=708ps and start the process again. This should be a fairly good approximation of the max frequency we can operate this design at, give or take a few picoseconds.
 
 Let's take note again of the design characteristics. Write down the area/timing/power/gate count that you obtained from the current synthesis run (even if this circuit does not respect our constraints, the data is interesting for comparison).
 
