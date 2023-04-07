@@ -36,7 +36,7 @@ First, we will check whether the design is passing timing. The script defines a 
 
 > How to read this image: There is a single clock name clk. It's period is 1000ps (1ns), which means a frequency of 1GHz. There is a single clock domain and a total of 1806 registers (flip-flops) are connected to this clock. The duty cycle is 50/50, meaning that the clock is assumed to be a perfect square wave.
 
-Next, let's have a look at timing. The command we will be using is `report_timing`. The result looks like this:
+Next, let's have a look at timing. The command we will be using is `report_timing`. The report looks like this (but it will not be a perfect match to your result):
 
 ![image](https://user-images.githubusercontent.com/50336652/229806406-71bacc2d-e75a-4855-8486-6b49684f7de8.png)
 
@@ -44,23 +44,20 @@ Next, let's have a look at timing. The command we will be using is `report_timin
 
 Next, let's have a look at area. There are two commands for that, `report_area` and `report_gates`. You can think of the area report as a summary whereas the gates report is more complete. The result looks like this:
 
-![image](https://user-images.githubusercontent.com/50336652/230019635-294e761f-57f4-489e-9544-1349e1c53a2f.png)
-> How to read this image: The design has a top-level module named sha256. The design contains 8740 standard cells which occupy 21323 um^2. This is a precise number, obtained by adding the area of each individual cell. Routing all of these cells will incur more area, which Genus estimates at 7926 um^2. This number is not precise since we do not have a layout at this point. The total area is the sum of the two areas. IMPORTANT: in academic papers, both cell area and total are used and it is not always clear which one is which. It is always good to be clear about what you are reporting.
+![image](https://user-images.githubusercontent.com/50336652/230601880-d6b49032-ba56-4fd4-97cd-1023a52e79f7.png)
+> How to read this image: The design has a top-level module named sha256. The design contains 8372 standard cells which occupy 20884 um^2. This is a precise number, obtained by adding the area of each individual cell. Routing all of these cells will incur more area, which Genus estimates at 7679 um^2. This number is not precise since we do not have a layout at this point. The total area is the sum of the two areas. IMPORTANT: in academic papers, both cell area and total area are used and it is not always clear which one is which. It is always good to be clear about what you are reporting.
 
-![image](https://user-images.githubusercontent.com/50336652/230020777-76fd8bcd-1234-403d-a7ad-34ec8122d553.png)
-
-> How to read this image: The design uses cells from different libraries. This is not really relevant in this case because the library designers decided to separate their libraries into different files. In practical terms, there is only one standard cell library being used and it is for regular Vth (RVT). Next, we see how the area is distributed among different cell types. Not surprisingly, flip-flops account for 51% of the area, which is really typical. Also remember that flip-flops are large cells, often the largest cell in a whole library.
+![image](https://user-images.githubusercontent.com/50336652/230602147-7caebdb5-a91e-48f3-accb-ed7945ff52ae.png)
+> How to read this image: The design uses cells from different libraries. This is not really relevant in this case because the library designers decided to separate their libraries into different files. In practical terms, there is only one standard cell library being used and it is for low Vth (LVT). Next, we see how the area is distributed among different cell types. Not surprisingly, flip-flops account for 52% of the area, which is really typical. Also remember that flip-flops are large cells, often the largest cell in a whole library.
 
 Finally, let's have a look at power. The command we are going to use is `report_power`. The command output looks like this:
 
+![image](https://user-images.githubusercontent.com/50336652/230602246-c17b49aa-a6ea-4022-9a44-78025f8d7ac2.png)
+> How to read this image: Power consumptions has 3 components: Leakage (or static), Internal, and Switching. Internal and switching are dynamic in nature, meaning that this is power consumed when the circuit is actively computing. In other words, the power consumption here depends on the inputs of the circuit. Internal power is the power consumed by the standard cells themselves. Switching power is related to capacitance charge/discharge of the wires that connect the cells together. Power consumption can come from many components of the circuit, including memories, flip-flops, latches, logic, black boxes, clock distribution, pads, and power management. Because we are not doing physical synthesis, we only have a few of those.
 
-![image](https://user-images.githubusercontent.com/50336652/230052569-6c86afaa-f2db-4d10-8478-92a5d90489da.png)
+Most of the time we will be interested in checking area, timing, and power reports, so go ahead and remove the comments at the end of script. This way we will always get the values reported any time we run it.
 
-> How to read this image: Power consumptions has 3 components: Leakage (or static), Internal, and Switching. Internal and switching are dynamic in nature, meaning that this is power consumed when the circuit is actively computing. In other words, the power consumption here depends on the inputs of the circuit. Internal power is the power consumed by the standard cells themselves. Switching power is related to capacitance charge/discharge of the wires that connect the cells together. Power consumption can come from many components of the circuit, including memories, flip-flops, latches, logic, black boxes, clock distribution, pads, and pm. Because we are not doing physical synthesis, we only have a few of those.
-
-Most of the time we will be interested in checking area, timing, power, so go ahead and remove the comments at the end of script. This way we will always get the values reported any time we run it.
-
-Did you get the same values for area and power? If so, let's move on! Timing should not match because I created an artificial scenario to show negative timing slack. Your design should have a positive or zero slack. Is it right?
+Did you get the same values for area and power? If so, let's move on! Timing should not match because I created an artificial scenario to show negative timing slack. Your design should have a slack of zero ps. Is it right?
 
 ## Task 4 - Input/output delay
 Now that we have a reference script and we know how to report on the characteristics of a circuit, let's try some more advanced commands and options. The first thing we are going to do is revise our clock specification. We have, so far, defined a clock:
