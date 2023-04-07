@@ -73,11 +73,11 @@ Did it work? It should not have worked because the tool cannot find a constraine
 You, the designer, have to tell the tool the behavior that you want. In most cases, when doing synthesis of a block that is part of a larger chip, all inputs are synchronous to the clock. That means that whatever other logic there is that is generating inputs for your block, it also works on the same clock domain. In order to achieve this behavior, we are going to use the `set_input_delay` command like this:
 
 `set_input_delay -clock clk delay_value [all_inputs]`
-> How to interpret this command: we are telling Genus that all inputs of our design have a relationship with a clock named "clk" and that this relationship has to be respected. This means that every input becomes available (stable) delay_value time units after the clock edge. This amount is discounted from our timing windown when doing timing analysis.
+> How to interpret this command: we are telling Genus that all inputs of our design have a relationship with a clock named "clk" and that this relationship has to be respected. This means that every input becomes available (stable) delay_value time units after the clock edge. This amount is discounted from our timing window when doing timing analysis.
 
 There is also an analogous command for the outputs of our block. The command looks like this:
 `set_output_delay -clock clk delay_value [all_outputs]`
-> How to interpret this command: we are telling Genus that all outputs of our design have a relationship with a clock named "clk" and that this relationship has to be respected. This means that every output must become available (stable) delay_value time units before the next clock edge. This amount is discounted from our timing windown when doing timing analysis.
+> How to interpret this command: we are telling Genus that all outputs of our design have a relationship with a clock named "clk" and that this relationship has to be respected. This means that every output must become available (stable) delay_value time units before the next clock edge. This amount is discounted from our timing window when doing timing analysis.
 
 Go ahead and apply these commands to your design in the same Genus session. We are gonna use a value of 300ps for input and output delays. This number is a guess because we do not know the environment in which our block will be operating. 
 
@@ -103,7 +103,7 @@ Did the area increase? By how much? How about power?
 Go ahead and write down the power values you obtained. We will need those for comparison later. We also want to collect cell count and area values for comparisons. We will also need to compare the output of `report_gates` so please save it with `report gates > gates_from_task_5.rep`.
 
 # Task 6 - Clock gating
-Clock gating is widely used low-power technique. The idea is that not all flip-flops of your circuit need to toggle at every clock cycle since in many cases they have to hold the same data they were already holding. Synthesis tools are able to automatically infer enable conditions from your source code and created derived clock signals (gated clocks) from it. This is all transparent, the code does not need to be modified by hand.
+Clock gating is a widely used low-power technique. The idea is that not all flip-flops of your circuit need to toggle at every clock cycle since in many cases they have to hold the same data they were already holding. Synthesis tools are able to automatically infer enable conditions from your source code and created derived clock signals (gated clocks) from it. This is all transparent, the RTL code does not need to be modified by hand to achieve clock gating.
 
 By default, clock gating is not enabled in Genus. To enable it, use the following command:
 
