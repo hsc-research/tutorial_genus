@@ -176,7 +176,12 @@ Let us assume our design has a very low frequency of operation, something in the
 
 Run the synthesis script again, but with the aforementioned 1MHz clock (1000000ps period). Collect results and compare. Did you notice how much the contribution of the static power went up? (from 0.5% to almost 40%!)
 
-What can you do to save more static power if your design is really constrained? Not much. By default, Genus optimizes for static instead of dynamic power. Only RTL changes would help further.
+What can you do to save more static power if your design is really constrained? Not much. By default, Genus optimizes for static instead of dynamic power. Only RTL changes would help further. Or changing the standard cell library...
+
+## RVT vs LVT vs HVT
+In our reference script, we are making use of RVT cells. Meaning that these cells have a nominal or *R*egular voltage threshold. In most cases, libraries will offer two other cell variants: LVT and HVT. LVT cells have a low voltage threshold and for this reason switch faster and consume more power. HVT cells have a higher voltage threshold and switch slower, but at a reduced power. If our target circuit is really intended to run at 1MHz and we have a slack of thousands of picosends, we can safely switch to an HVT library to save even more power. So let's go ahead and edit our reference script to use only HVT cells. Then run synthesis again for the same 1MHz target. Collect area/power/timing/cell count values and compare with the previous run.
+
+Are you saving power by using HVT cells?
 
 # Task 10 - Don't use statements
 
