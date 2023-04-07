@@ -183,9 +183,21 @@ In our reference script, we are making use of LVT cells. Meaning that these cell
 
 The standard cell library we are working with has 3 different Vt levels: regular, low, super low. If our target circuit is really intended to run at 1MHz and we have a slack of thousands of picosends, we can safely switch to an RVT library to save even more power. So let's go ahead and edit our reference script to use only RVT cells. Then run synthesis again for the same 1MHz target. Collect area/power/timing/cell count values and compare with the previous run.
 
-Are you saving power by using RVT cells?
+Are you saving power by using RVT cells? How much? Write down all the design characteristics after you switched to RVT cells.
+
+### So what library should a designer use?
+In general, we provide the synthesis tools with all flavors of standard cells available in a library and let the tools mix and match. For critical paths, the tool will prefer LVT cells (faster and power hungry). For slow paths, the tool will prefer RVT cells (slower but power efficient).
 
 # Task 10 - Don't use statements
+In some really specific cases, we might want to tell the synthesis tool not to use a few standard cells. For instance, some cells might be really hard to route and are giving us a headache in physical synthesis. We can go ahead and tell the tool `set_dont_use problematic_cell`. In another scenario, we might have developed specific cells of our own and we want to prevent the tool from using the regular ones available in the library. This usually causes a small penalty. So let's evaluate this penalty.
+
+First, let's roll back some things. We want to go back to the 708ps clock period and to use only the LVT cells. 
+
+Then, we are going to prevent Genus from using the cell named AOI22xp5_ASAP7_75t_R. This cell is notoriously hard to route because it is very small and contains many inputs. Therefore, it has a high pin density that creates local routing problems. To prevent Genus from using it, we are going to issue the command `set_dont_use AOI22xp5_ASAP7_75t_R true`. Then we are going to run our synthesis script again.
+
+What happened to cell count/area/power/timing? Make comparisons and write the values down.
+
+# Task 11 - 
 
 
 
