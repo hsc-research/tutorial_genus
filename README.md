@@ -197,7 +197,10 @@ Then, we are going to prevent Genus from using the cell named AOI22xp33_ASAP7_75
 
 What happened to cell count/area/power/timing? Make comparisons and write the values down. How is it possible that preventing the use of a single cell increases dynamic power by 20%?
 
-# Task 11 - Retiming
+# Task 11 - Further optimization and retiming
+First, let's remove the dont_use command from our script and roll back to our 708ps target clock period.
+
+Genus has an incremental mode to syn_opt that can be issued with the command `syn_opt -incremental`. This works as an optimization on top of optimization. It can be called many times and sometimes it is enough to get a few picoseconds of improvement in timing. Run the script again, but this time add this command to end of the script. Write down the results that you obtained for area/power/timing/cell count and compare with the previous run. What changed?
 
 
 
