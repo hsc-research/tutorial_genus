@@ -224,9 +224,16 @@ The SHA256 core we are working with has in2out paths that are not flopped. This 
 
 Now are going to go ahead and synthesize this new code. We are going to change our list of input files to point to sha256_pipe.v instead of sha256.v. All other files remain unchanged. You should proceed with our current synthesis script (708ps clock period and with the incremental opt). Disable retiming for now. What happened? Is the circuit faster, slower, bigger, smaller, power hungry? How many additional flip-flops are there? Could you have predicted the increase in flip-flop count? What happened to the critical path? Write down all the design characteristics before moving on.
 
-Now our design is so freaking good we are going to go wild on the clock frequency. Let's aim for 2GHz (period = 500ps) and see what happens. Start your Genus run again with a modified script for this aggressive clock target. Did it pass timing? What happened to area/power/gate count? 
+Now our design is so freaking good we are going to go wild on the clock frequency. Let's aim for > 2.22GHz (period = 450ps) and see what happens. Start your Genus run again with a modified script for this aggressive clock target. Did it pass timing? What happened to area/power/gate count? Write those values down.
 
-Finally, we are going to apply our very last trick to try to meet timing. We are going to try to retime this design. What happened? Write it down!
+Finally, we are going to apply our very last trick to try to meet timing. We are going to try to retime this design. Start your synthesis again with retiming enabled. What happened? Write it down!
+
+# Task 12 - Miscelaneous other things
+## TNS vs WNS
+When a design fails timing, it is important to have a look at where it fails (critical path) but also how often it fails. WNS stands for worst negative slack and it is related to the single most critical path. TNS stands for total negative slack and is the sum of the negative slacks of all paths that fail timing checks. If your TNS value is very close to your WNS, this means there is only one or a few paths that are the culprits -- you should probably work on them. If TNS is many times higher than WNS, this means that the problem is more widespread and fixing one single path will just push the problem to another place. From the Genus logs, can you find the WNS and TNS values? They are printed on the screen repeatedly during optimizations.
+
+## Supressing warnings
+There are several warnings issued by Genus that are quite benign and relate to how the standard cell library has been described. This warning can be supressed if you want to by using the command `supress_messages {MSG_CODEi MSG_CODEj}.
 
 
 
