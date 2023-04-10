@@ -206,10 +206,17 @@ Genus has an incremental mode to syn_opt that can be issued with the command `sy
 
 What changed?
 
+Before moving on, do a `report_timing` on the further optimized design. Check where the critical path, where it starts and where it ends.
+
 ### What is retiming?
 Retiming is the process of rebalancing the logic of your design so a higher clock frequency can be achieved. The figure is rather self-explanatory: flip-flops are TIMING barriers and the combinational logic can be freely moved with respect to them. The only consequence of this approach is that the design becomes harder to validate/simulate. A flip-flop that used to hold an intermediate result at cycle X now may not hold it at any given clock cycle. 
 
 ![image](https://user-images.githubusercontent.com/50336652/230843613-375d3920-0922-4153-9f6f-7e5474168bf6.png)
+
+Given the image below and the general concept of how pipelining works, do you think we can apply it to our design? Think about the critical path you determined in the previous step. Is pipelining useful in that scenario?
+
+![image](https://user-images.githubusercontent.com/50336652/230849546-fac262bb-cba9-4b4d-bd45-9dd0868add1a.png)
+
 
 
 
