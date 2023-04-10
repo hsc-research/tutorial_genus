@@ -218,11 +218,11 @@ Given the image below and the general concept of how pipelining works, do you th
 ![image](https://user-images.githubusercontent.com/50336652/230849546-fac262bb-cba9-4b4d-bd45-9dd0868add1a.png)
 
 ### We need a better design
-The SHA256 core we are working with has in2out paths that are not flopped. This is not generally considered a good practice. We are going to go ahead and fix this problem by adding a pipeline stage to the output of our SHA256 module. Notice that this will increase the latency by 1 additional clock cycle. The new code will loke like this (check sha256_pipe.v):
+The SHA256 core we are working with has in2out paths that are not flopped. This is not generally considered a good practice. We are going to go ahead and fix this problem by adding a pipeline stage to the output of our SHA256 module. Notice that this will increase the latency by 1 additional clock cycle. The new code will loke like this (open sha256_pipe.v in a text editor):
 
-![image](https://user-images.githubusercontent.com/50336652/230850629-c6b60f3d-463a-4233-abe5-59a2db79b9b6.png)
+![image](https://user-images.githubusercontent.com/50336652/230851522-673bbea9-3106-42c0-a7ec-b38ee93b5a93.png)
 
-Now are going to go ahead and synthesize this new code with our current script (708ps clock period and with the incremental opt). What happened? Is the circuit faster, slower, power hungry? How many additional flip-flops are there? Could you have predicted the increase in flip-flop count?
+Now are going to go ahead and synthesize this new code. We are going to change our list of input files to point to sha256_pipe.v instead of sha256.v. All other files remain unchanged. You should proceed with our current synthesis script (708ps clock period and with the incremental opt). What happened? Is the circuit faster, slower, power hungry? How many additional flip-flops are there? Could you have predicted the increase in flip-flop count?
 
 
 
