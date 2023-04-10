@@ -244,7 +244,7 @@ Finally, we are going to apply our very last trick to try to meet timing. We are
 When a design fails timing, it is important to have a look at where it fails (critical path) but also how often it fails. WNS stands for worst negative slack and it is related to the single most critical path. TNS stands for total negative slack and is the sum of the negative slacks of all paths that fail timing checks. If your TNS value is very close to your WNS, this means there is only one or a few paths that are the culprits -- you should probably work on them. If TNS is many times higher than WNS, this means that the problem is more widespread and fixing one single path will just push the problem to another place. From the Genus logs, can you find the WNS and TNS values? They are printed on the screen repeatedly during optimizations.
 
 ## Supressing warnings
-There are several warnings issued by Genus that are quite benign and relate to how the standard cell library has been described. This warning can be supressed if you want to by using the command `supress_messages {MSG_CODEi MSG_CODEj}.
+There are several warnings issued by Genus that are quite benign and relate to how the standard cell library has been described. These warnings can be supressed if you want to by using the command `supress_messages {MSG_CODEi MSG_CODEj}`.
 
 
 
