@@ -4,6 +4,16 @@ A short and on point tutorial on how to use an ASIC logic synthesis tool
 # Preliminaries
 The tutorial is built around Cadence Genus version 21. Most of the commands are identical in previous versions too. The tutorial will use a single design (sha256) and many optimizations options will be explored to generate different results. The standard cell library considered in this tutorial is from the ASAP7 PDK. No external downloads are necessary, all design files and library files are already included in this repository. The tutorial is organized in tasks that should be completed in order. Let's get started!
 
+## Results
+As you go along this tutorial, in many places you will be asked to write down your results. You can use a table for that. The following table is a suggestion:
+
+| Design  | Cell count | Total Area | Slack | Static pwr | Total pwr |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| First  | xxx  |
+| Baseline  | xxx  |
+| Clock gating |
+| 900ps | xxx |
+
 # Tasks
 ## Task 1 - Starting the tool
 Make sure you can start Genus. If your setup is right, typing `genus` on a terminal will start the tool. To exit the tool, type exit or press `CTRL+C` twice. If the installation is correct, you will see something like this on the screen:
