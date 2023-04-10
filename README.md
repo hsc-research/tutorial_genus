@@ -200,7 +200,17 @@ What happened to cell count/area/power/timing? Make comparisons and write the va
 # Task 11 - Further optimization and retiming
 First, let's remove the dont_use command from our script and roll back to our 708ps target clock period.
 
-Genus has an incremental mode to syn_opt that can be issued with the command `syn_opt -incremental`. This works as an optimization on top of optimization. It can be called many times and sometimes it is enough to get a few picoseconds of improvement in timing. Run the script again, but this time add this command to end of the script. Write down the results that you obtained for area/power/timing/cell count and compare with the previous run. What changed?
+Let us say we are not happy with the results of our synthesis so far. What other tricks can we employ to get better results? The options are limited at this point, but we can try...
+
+Genus has an incremental mode to syn_opt that can be issued with the command `syn_opt -incremental`. This works as an optimization on top of an optimization. It can be called many times and sometimes it is enough to get a few picoseconds of improvement in timing. Run the script again, but this time add this command to end of the script. Write down the results that you obtained for area/power/timing/cell count and compare with the previous run. 
+
+What changed?
+
+### What is retiming?
+Retiming is the process of rebalancing the logic of your design so a higher clock frequency can be achieved. The figure is rather self-explanatory: flip-flops are TIMING barriers and the combinational logic can be freely moved with respect to them. The only consequence of this approach is that the design becomes harder to validate/simulate. A flip-flop that used to hold an intermediate result at cycle X now may not hold it at any given clock cycle. 
+
+![image](https://user-images.githubusercontent.com/50336652/230843613-375d3920-0922-4153-9f6f-7e5474168bf6.png)
+
 
 
 
