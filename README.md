@@ -246,6 +246,9 @@ When a design fails timing, it is important to have a look at where it fails (cr
 ## Supressing warnings
 There are several warnings issued by Genus that are quite benign and relate to how the standard cell library has been described. These warnings can be supressed if you want to by using the command `supress_messages {MSG_CODEi MSG_CODEj}`.
 
+## Physical synthesis
+Naturally, after logic synthesis comes physical synthesis. The amount of user-guided effort is generally higher in that stage, there is a lot to talk about. For a very shallow introduction, you can check this repo: https://github.com/Centre-for-Hardware-Security/asap7_reference_design
+
 
 
 
