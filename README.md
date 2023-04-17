@@ -251,6 +251,15 @@ When a design fails timing, it is important to have a look at where it fails (cr
 ## Supressing warnings
 There are several warnings issued by Genus that are quite benign and relate to how the standard cell library has been described. These warnings can be supressed if you want to by using the command `supress_messages {MSG_CODEi MSG_CODEj}`.
 
+## Graphical interface
+There is very little benefit in using Genus GUI. One interesting feature is a timing histogram that is otherwise hard to get from the terminal interface. To start the GUI issue the command `gui_show`. Once the GUI loads, on the main menu, clock on Timing->Debug Timing. Clock OK on the popup, don't change anything. You will get a screen like this:
+
+![image](https://user-images.githubusercontent.com/50336652/232483549-36a895b2-8afd-4d40-a435-872bd51215bc.png)
+
+The number of failing paths is generally small, there are only 17 of them. You can inspect these paths one by one and you will see there is a pattern in their starting point. This is indication of what portion of the design could be a candidate for improvement.
+
+An experienced designer can look at this sort of plot and understand if they are leaving too much on the table or if the design is just about right.
+
 ## Physical synthesis
 Naturally, after logic synthesis comes physical synthesis. The amount of user-guided effort is generally higher in that stage, there is a lot to talk about. For a very shallow introduction, you can check this repo: https://github.com/Centre-for-Hardware-Security/asap7_reference_design
 
