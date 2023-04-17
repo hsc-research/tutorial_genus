@@ -2,7 +2,7 @@
 A short and on point tutorial on how to use an ASIC logic synthesis tool and how to get the best out of it.
 
 # Preliminaries
-The tutorial is built around Cadence Genus version 21. Most of the commands are identical in previous versions too, so it shouldn't be a problem if you have a relatively reent version. The tutorial will use a single design (sha256) and many optimizations options will be explored to generate different results. The standard cell library considered in this tutorial is from the ASAP7 PDK. No external downloads are necessary, all design files and library files are already included in this repository. The tutorial is organized in tasks that should be completed in order. Let's get started!
+The tutorial is built around Cadence Genus version 21. Most of the commands are identical in previous versions too, so it shouldn't be a problem if you have a relatively recent version. The tutorial will use a single design (sha256) and many optimizations options will be explored to generate different results. The standard cell library considered in this tutorial is from the ASAP7 PDK. No external downloads are necessary, all design files and library files are already included in this repository. The tutorial is organized in tasks that should be completed in order. Let's get started!
 
 ## Results
 As you follow along this tutorial, in many places you will be asked to write down your results. You can use a table for that. The following table is a suggestion, where each design we try is a new row. Feel free to give the designs some meaningful names:
