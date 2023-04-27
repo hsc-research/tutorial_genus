@@ -43,13 +43,13 @@ These are not necessarily covered by the tutorial, but they are also important.
 
 # Task 11 - Further optimization and retiming
 
-### Q11.1 Is it possible that the number of flip-flops will increase after retiming?
+### Q11.1 - Is it possible that the number of flip-flops will increase after retiming?
 
-### Q11.2 What would have happened if instead of adding flip-flops to the outputs we would have added them to the inputs?
+### Q11.2 - What would have happened if instead of adding flip-flops to the outputs we would have added them to the inputs?
 
 # Task 12 - Miscelaneous other things
 
-### Power estimation
+### Q12.1 - Power estimation
 
 
 
