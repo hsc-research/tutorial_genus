@@ -2,10 +2,10 @@
 
 These are not necessarily covered by the tutorial, but they are also important.
 
-## Task 2 - Our first synthesis run
+# Task 2 - Our first synthesis run
 ### Q2.1 - What is the purpose of LEF/LIB/QRC files?
 
-## Task 3 - Initial analysis
+# Task 3 - Initial analysis
 
 ### Q3.1 - What is an upsized cell? Why do we use upsized cells? What is the meaning of an X16 cell, for instance?
 
@@ -15,7 +15,7 @@ These are not necessarily covered by the tutorial, but they are also important.
 
 ### Q3.4 - How is Genus able to estimate the net area if there is no layout?
 
-## Task 4 - Input/output delay
+# Task 4 - Input/output delay
 
 ### Q4.1 - If I have an asynchronous reset, how should I define my input delay w.r.t. the clock?
 
