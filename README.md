@@ -202,7 +202,7 @@ The standard cell library we are working with has 3 different Vt levels: regular
 Are you saving power by using RVT cells? How much? Write down all the design characteristics after you switched to RVT cells.
 
 ### So what library should a designer use?
-In general, we provide the synthesis tools with all flavors of standard cells available in a library and let the tools mix and match. For critical paths, the tool will prefer LVT cells (faster and power hungry). For slow paths, the tool will prefer RVT cells (slower but power efficient).
+In general, we provide the synthesis tools with all flavors of standard cells available in a library and let the tools mix and match. For critical paths, the tool will prefer LVT cells (faster and power hungry). For slow paths, the tool will prefer HVT cells (slower but power efficient).
 
 # Task 10 - Don't use statements
 In some really specific cases, we might want to tell the synthesis tool not to use a few standard cells. For instance, some cells might be really hard to route and are giving us a headache in physical synthesis. We can go ahead and tell the tool `set_dont_use problematic_cell`. In another scenario, we might have developed specific cells of our own and we want to prevent the tool from using the regular ones available in the library. This usually causes a small penalty. So let's evaluate this penalty.
