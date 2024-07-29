@@ -9,7 +9,7 @@ These are not necessarily covered by the tutorial, but they are also important.
 
 ### Q3.1 - What is an upsized cell? Why do we use upsized cells? What is the meaning of an X16 cell, for instance?
 
-### Q3.2 - What is the size of flip-flop?
+### Q3.2 - What is the size of single flip-flop? Which file would you check to learn this information?
 
 ### Q3.3 - Regarging the timed path shown in the image, how many picosends are from combinational logic and how many are from sequential logic?
 
@@ -49,7 +49,7 @@ These are not necessarily covered by the tutorial, but they are also important.
 
 # Task 12 - Miscelaneous other things
 
-### Q12.1 - Power estimation
+### Q12.1 - Is the power estimation we got so far representative? How does Genus know how to calculate dynamic power?
 
 
 
