@@ -265,7 +265,7 @@ The number of failing paths is generally small, there are only 17 of them. You c
 An experienced designer can look at this sort of plot and understand if they are leaving too much on the table or if the design is just about right.
 
 ## Physical synthesis
-Naturally, after logic synthesis comes physical synthesis. The amount of user-guided effort is generally higher in that stage, there is a lot to talk about. Here is a good related repo that uses the same 7nm ASAP library: https://github.com/Centre-for-Hardware-Security/asap7_reference_design
+Naturally, after logic synthesis comes physical synthesis. The amount of user-guided effort is generally higher in that stage, there is a lot to talk about. Here is a good related repo that uses the same 7nm ASAP library: https://github.com/hsc-research/asap7_reference_design
 
 
 
