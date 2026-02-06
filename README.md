@@ -20,7 +20,7 @@ As you follow along this tutorial, in many places you will be asked to write dow
 # Tasks
 ## Task 1 - Starting the tool
 ### Configuration ###
-A script for configuring the path to Genus on CMU servers is provided. The script is called genus.sh and it has to be sourced once for every session/terminal that you open. To source it, type `source genus.sh`
+The path to Genus on the UI server is provided. So, directly type `genus` to invoke the tool.
 
 ### Loading ###
 Make sure you can start Genus. If your setup is right, typing `genus` on a terminal will start the tool. To exit the tool, type exit or press `CTRL+C` twice. If the installation is correct, you will see something like this on the screen:
