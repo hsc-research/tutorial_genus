@@ -1,4 +1,3 @@
-# Script written by Samuel Pagliarini on April 2023. Works well in genus 21.10
 
 #look for !TODO! markers. these indicate locations where you should make changes to the script to exercise different aspects of synthesis
 
