@@ -1,4 +1,4 @@
-# Genus tutorial
+<img width="1612" height="919" alt="image" src="https://github.com/user-attachments/assets/a791f1e3-6f53-4cfa-8b96-23217e072dd1" /># Genus tutorial
 A short and on point tutorial on how to use an ASIC logic synthesis tool and how to get the best out of it. The step-by-step guide is provided here in README.md. There is also a set of questions available in QUESTIONS.md. A reference script is provided in genus.tcl.
 
 # Preliminaries
@@ -24,7 +24,7 @@ A script for configuring the path to Genus on CMU servers is provided. The scrip
 
 ### Loading ###
 Make sure you can start Genus. If your setup is right, typing `genus` on a terminal will start the tool. To exit the tool, type exit or press `CTRL+C` twice. If the installation is correct, you will see something like this on the screen:
-![image](https://user-images.githubusercontent.com/50336652/229764141-250d55b3-77b4-4d17-893f-3603f2c91a6b.png)
+<img width="1612" height="919" alt="image" src="https://github.com/user-attachments/assets/c8a07fab-ff7d-4705-91ec-650495de53c0" />
 
 It is also important to make sure you have access to Genus documentation. Inside the Genus terminal, type `cdnshelp`. If your setup is properly installed, a new window will open with Cadence's help navigation system. It looks like this: 
 
