@@ -1,0 +1,266 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[08:54:13.481705] Configured Lic search path (25.01-s002): 5280@ece-cadence-lic.ece.uidaho.edu
+
+Version: 25.12-s067_1, built Mon Nov 17 13:10:10 PST 2025
+Options: 
+Date:    Fri Mar 06 08:54:13 2026
+Host:    engr-r940s01.engr.uidaho.edu (x86_64 w/Linux 5.14.0-611.16.1.el9_7.x86_64) (20cores*80cpus*4physical cpus*Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz 28160KB) (1056118652KB)
+PID:     3324721
+OS:      Red Hat Enterprise Linux 9.7 (Plow)
+
+Checking out license: Genus_Synthesis
+[08:54:13.185512] Periodic Lic check successful
+[08:54:13.709827] Feature usage summary:
+[08:54:13.709827] Genus_Synthesis  
+License checkout complete (0 seconds elapsed).
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (14 seconds elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (34 seconds elapsed).
+
+@genus:root: 1> init_lib_search_path
+invalid command name "init_lib_search_path"
+@genus:root: 2> init_lib_search_path -h
+invalid command name "init_lib_search_path"
+@genus:root: 3> set-db init_lib_search_path
+invalid command name "set-db"
+@genus:root: 4> set_db init_lib_search_path
+Error   : A required argument was not specified. [TUI-202] [set_db]
+        : An argument of type '<string>' was not specified.
+        : Rerun the command specifying all required arguments.
+  set_db: set attributes on objects 
+
+Usage: set_db [-quiet] [-verbose] [-dbu] [-index <string>] <string> <string> [<string>]
+
+    [-quiet]:
+        keeps quiet unless there are problems 
+    [-verbose]:
+        enables verbose 
+    [-dbu]:
+        indicates that attribute (coord, pt, rect, polygon, area, etc.) will be in database units 
+    [-index <string>]:
+        list of indices in a form of pairs of index_name value or a object name 
+    <string>:
+        <start> can be any object list (or collection) or <shorthand> (e.g., nets, insts, etc) 
+    <string>:
+        the <chain> is in the form [.<attribute_name1>[.<attribute_name2>]...] 
+    [<string>]:
+        the attribute value 
+1
+@genus:root: 5> set RTL_PATH"../sources/"
+can't read "RTL_PATH"../sources/"": no such variable
+@genus:root: 6> set RTL_PATH"../sources/"
+can't read "RTL_PATH"../sources/"": no such variable
+@genus:root: 7> # LIB path is the folder than contains your Liberty files with the timing/power information about your standard cells
+@genus:root: 8> set LIB_PATH "../lib/"
+../lib/
+@genus:root: 9> # LEF_PATH refers to the folder that contains the LEF files that describe the physical dimentions of the cells and the locations of their pins.
+@genus:root: 10> # this is not a full layout though, it is just a front-end view or abstract view of the cells
+@genus:root: 11> set LEF_PATH"../lef/scaled/"
+can't read "LEF_PATH"../lef/scaled/"": no such variable
+@genus:root: 12> # TLEF_PATH is the folder that contains the technology LEF file which describes your metal stack: how many metals you have, how wide they are, what the vias between them look like and so on.
+@genus:root: 13> set TLEF_PATH"../techlef/"
+can't read "TLEF_PATH"../techlef/"": no such variable
+@genus:root: 14> # QRC_PATH is the path that contains your QRC files used for extraction. It contains more detailed information about the metal layers than the LEF files, with precise R and C estimations for the wires based on how long/fat they are.
+@genus:root: 15> set QRC_PATH "../qrc/"
+../qrc/
+@genus:root: 16> # DESIGN is a user variable. It is useful to make the script reusable for different designs
+@genus:root: 17> set DESIGN "sha256"
+sha256
+@genus:root: 18> 
+@genus:root: 18> # Standard cell libraries to be used. The should be located in LIB_PATH
+@genus:root: 19> # !TODO! Task 9, Task 10
+@genus:root: 20> #set LIB_LIST {  asap7sc7p5t_AO_RVT_TT_nldm_211120.lib   asap7sc7p5t_INVBUF_RVT_TT_nldm_220122.lib   asap7sc7p5t_OA_RVT_TT_nldm_211120.lib   asap7sc7p5t_SEQ_RVT_TT_nldm_220123.lib   asap7sc7p5t_SIMPLE_RVT_TT_nldm_211120.lib }
+@genus:root: 21> set LIB_LIST {  asap7sc7p5t_AO_LVT_TT_nldm_211120.lib   asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib   asap7sc7p5t_OA_LVT_TT_nldm_211120.lib   asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib   asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib }
+  asap7sc7p5t_AO_LVT_TT_nldm_211120.lib   asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib   asap7sc7p5t_OA_LVT_TT_nldm_211120.lib   asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib   asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib 
+@genus:root: 22> 
+@genus:root: 22> # LEF files to be used. They should be located in LEF_PATH or TLEF_PATH
+@genus:root: 23> set LEF_LIST { asap7_tech_4x_201209.lef asap7sc7p5t_28_L_4x_220121a.lef asap7sc7p5t_28_R_4x_220121a.lef asap7sc7p5t_28_SL_4x_220121a.lef}
+ asap7_tech_4x_201209.lef asap7sc7p5t_28_L_4x_220121a.lef asap7sc7p5t_28_R_4x_220121a.lef asap7sc7p5t_28_SL_4x_220121a.lef
+@genus:root: 24> 
+@genus:root: 24> set QRC_FILE "qrcTechFile_typ03_scaled4xV06"
+qrcTechFile_typ03_scaled4xV06
+@genus:root: 25> 
+@genus:root: 25> # All HDL files used in your design, separated by spaces
+@genus:root: 26> # Verilog files can be given in no specific order
+@genus:root: 27> set RTL_LIST {sha256.v sha256_core.v sha256_k_constants.v sha256_w_mem.v}
+sha256.v sha256_core.v sha256_k_constants.v sha256_w_mem.v
+@genus:root: 28> 
+@genus:root: 28> # !TODO! Task 11
+@genus:root: 29> #set RTL_LIST {sha256_pipe.v sha256_core.v sha256_k_constants.v sha256_w_mem.v}
+@genus:root: 30> 
+@genus:root: 30> set_db lp_power_analysis_effort
+Error   : A required argument was not specified. [TUI-202] [set_db]
+        : An argument of type '<string>' was not specified.
+  set_db: set attributes on objects 
+
+Usage: set_db [-quiet] [-verbose] [-dbu] [-index <string>] <string> <string> [<string>]
+
+    [-quiet]:
+        keeps quiet unless there are problems 
+    [-verbose]:
+        enables verbose 
+    [-dbu]:
+        indicates that attribute (coord, pt, rect, polygon, area, etc.) will be in database units 
+    [-index <string>]:
+        list of indices in a form of pairs of index_name value or a object name 
+    <string>:
+        <start> can be any object list (or collection) or <shorthand> (e.g., nets, insts, etc) 
+    <string>:
+        the <chain> is in the form [.<attribute_name1>[.<attribute_name2>]...] 
+    [<string>]:
+        the attribute value 
+1
+@genus:root: 31> read_hdl ${RTL_LIST}
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'sha256.v'.
+        : The specified file could not be opened.  Check the value of the init_hdl_search_path attribute.
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'sha256_core.v'.
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'sha256_k_constants.v'.
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'sha256_w_mem.v'.
+@genus:root: 32> set RTL_LIST {sha256.v sha256_core.v sha256_k_constants.v sha256_w_mem.v}
+sha256.v sha256_core.v sha256_k_constants.v sha256_w_mem.v
+@genus:root: 33> read_hdl ${RTL_LIST}
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'sha256.v'.
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'sha256_core.v'.
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'sha256_k_constants.v'.
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'sha256_w_mem.v'.
+@genus:root: 34> # Script written by Samuel Pagliarini on April 2023. Works well in genus 21.10
+@genus:root: 35> 
+@genus:root: 35> #look for !TODO! markers. these indicate locations where you should make changes to the script to exercise different aspects of synthesis
+@genus:root: 36> 
+@genus:root: 36> # RTL path is the folder than contains your RTL files, your inputs to synthesis
+@genus:root: 37> set RTL_PATH"../sources/"
+can't read "RTL_PATH"../sources/"": no such variable
+@genus:root: 38> # LIB path is the folder than contains your Liberty files with the timing/power information about your standard cells
+@genus:root: 39> set LIB_PATH "../lib/"
+../lib/
+@genus:root: 40> # LEF_PATH refers to the folder that contains the LEF files that describe the physical dimentions of the cells and the locations of their pins.
+@genus:root: 41> # this is not a full layout though, it is just a front-end view or abstract view of the cells
+@genus:root: 42> set LEF_PATH"../lef/scaled/"
+can't read "LEF_PATH"../lef/scaled/"": no such variable
+@genus:root: 43> # TLEF_PATH is the folder that contains the technology LEF file which describes your metal stack: how many metals you have, how wide they are, what the vias between them look like and so on.
+@genus:root: 44> set TLEF_PATH"../techlef/"
+can't read "TLEF_PATH"../techlef/"": no such variable
+@genus:root: 45> # QRC_PATH is the path that contains your QRC files used for extraction. It contains more detailed information about the metal layers than the LEF files, with precise R and C estimations for the wires based on how long/fat they are.
+@genus:root: 46> set QRC_PATH "../qrc/"
+../qrc/
+@genus:root: 47> # DESIGN is a user variable. It is useful to make the script reusable for different designs
+@genus:root: 48> set DESIGN "sha256"
+sha256
+@genus:root: 49> 
+@genus:root: 49> # Standard cell libraries to be used. The should be located in LIB_PATH
+@genus:root: 50> # !TODO! Task 9, Task 10
+@genus:root: 51> #set LIB_LIST {  asap7sc7p5t_AO_RVT_TT_nldm_211120.lib   asap7sc7p5t_INVBUF_RVT_TT_nldm_220122.lib   asap7sc7p5t_OA_RVT_TT_nldm_211120.lib   asap7sc7p5t_SEQ_RVT_TT_nldm_220123.lib   asap7sc7p5t_SIMPLE_RVT_TT_nldm_211120.lib }
+@genus:root: 52> set LIB_LIST {  asap7sc7p5t_AO_LVT_TT_nldm_211120.lib   asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib   asap7sc7p5t_OA_LVT_TT_nldm_211120.lib   asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib   asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib }
+  asap7sc7p5t_AO_LVT_TT_nldm_211120.lib   asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib   asap7sc7p5t_OA_LVT_TT_nldm_211120.lib   asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib   asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib 
+@genus:root: 53> 
+@genus:root: 53> # LEF files to be used. They should be located in LEF_PATH or TLEF_PATH
+@genus:root: 54> set LEF_LIST { asap7_tech_4x_201209.lef asap7sc7p5t_28_L_4x_220121a.lef asap7sc7p5t_28_R_4x_220121a.lef asap7sc7p5t_28_SL_4x_220121a.lef}
+ asap7_tech_4x_201209.lef asap7sc7p5t_28_L_4x_220121a.lef asap7sc7p5t_28_R_4x_220121a.lef asap7sc7p5t_28_SL_4x_220121a.lef
+@genus:root: 55> 
+@genus:root: 55> set QRC_FILE "qrcTechFile_typ03_scaled4xV06"
+qrcTechFile_typ03_scaled4xV06
+@genus:root: 56> 
+@genus:root: 56> # All HDL files used in your design, separated by spaces
+@genus:root: 57> # Verilog files can be given in no specific order
+@genus:root: 58> set RTL_LIST {sha256.v sha256_core.v sha256_k_constants.v sha256_w_mem.v}
+sha256.v sha256_core.v sha256_k_constants.v sha256_w_mem.v
+@genus:root: 59> 
+@genus:root: 59> # !TODO! Task 11
+@genus:root: 60> #set RTL_LIST {sha256_pipe.v sha256_core.v sha256_k_constants.v sha256_w_mem.v}
+@genus:root: 61> 
+@genus:root: 61> set_db init_lib_search_path "$LIB_PATH $LEF_PATH $TLEF_PATH"
+can't read "LEF_PATH": no such variable
+@genus:root: 62> set_db init_hdl_search_path $RTL_PATH
+can't read "RTL_PATH": no such variable
+@genus:root: 63> set_db / .library "$LIB_LIST"
+Error   : File error. [FILE-100] [set_db]
+        : Cannot open file 'asap7sc7p5t_AO_LVT_TT_nldm_211120.lib'
+        : Make sure that the file is a readable regular file and has the specified name.
+Error   : File error. [FILE-100] [set_db]
+        : Cannot open file 'asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib'
+Error   : File error. [FILE-100] [set_db]
+        : Cannot open file 'asap7sc7p5t_OA_LVT_TT_nldm_211120.lib'
+Error   : File error. [FILE-100] [set_db]
+        : Cannot open file 'asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib'
+Error   : File error. [FILE-100] [set_db]
+        : Cannot open file 'asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib'
+Error   : A library file does not exist. [LBR-68] [set_db]
+        : File 'asap7sc7p5t_AO_LVT_TT_nldm_211120.lib asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib asap7sc7p5t_OA_LVT_TT_nldm_211120.lib asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib' could not be found. File '<none>' was the last file that was successfully read in.
+        : Make sure that the library file exists or check for a typo in the file name.
+Error   : The data value for this attribute is invalid. [TUI-24] [set_db]
+        : The value '  asap7sc7p5t_AO_LVT_TT_nldm_211120.lib   asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib   asap7sc7p5t_OA_LVT_TT_nldm_211120.lib   asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib   asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib ' cannot be set for attribute 'library'.
+        : To see the usage/description for this attribute, type '::legacy::set_attribute -h <attr_name> *' (in legacy UI mode) or 'help * <attr_name> -detail' (in CUI mode).
+1
+@genus:root: 64> set_db lef_library "$LEF_LIST"
+Error   : File error. [FILE-100] [set_db]
+        : Cannot open file 'asap7_tech_4x_201209.lef'
+Error   : The attribute or the value for this attribute is not allowed at this moment. [TUI-48] [set_db]
+        : attribute: 'lef_library', value: ' asap7_tech_4x_201209.lef asap7sc7p5t_28_L_4x_220121a.lef asap7sc7p5t_28_R_4x_220121a.lef asap7sc7p5t_28_SL_4x_220121a.lef'
+        : Cannot change the value of the attribute.
+1
+@genus:root: 65> set_db qrc_tech_file "$QRC_PATH/$QRC_FILE"
+Error   : No LEF data found while reading QRC Tech file. [PHYS-1215] [set_db]
+        : Error while reading QRC Tech file.
+        : Specify the LEF library files first.
+INFO (IMPEXT-7048): Generating auto layer map file.
+
+INFO (IMPEXT-7136): Skipping preRoute pattern extraction as there are no layers in top cell 
+
+Error   : The data value for this attribute is invalid. [TUI-24] [set_db]
+        : The value '../qrc//qrcTechFile_typ03_scaled4xV06' cannot be set for attribute 'qrc_tech_file'.
+1
+@genus:root: 66> 
+@genus:root: 66> # !TODO! Task 8
+@genus:root: 67> #set_db syn_generic_effort high
+@genus:root: 68> #set_db syn_map_effort     high
+@genus:root: 69> #set_db syn_opt_effort  high
+@genus:root: 70> #set_db lp_power_analysis_effort high
+@genus:root: 71> #set_db power_optimization_effort high
+@genus:root: 72> #set_db design_power_effort high
+@genus:root: 73> 
+@genus:root: 73> # Optionally, you can define messages to be supressed from your logs/terminal reports. This is handy because usually there are dozens of benign warnings that pollute the screen.
+@genus:root: 74> # !TODO! Task 12
+@genus:root: 75> #suppress_messages {LBR-30 LBR-31 LBR-40 LBR-41 LBR-72 LBR-77 LBR-162}
+@genus:root: 76> 
+@genus:root: 76> # !TODO! Task 6
+@genus:root: 77> #set_db lp_insert_clock_gating true
+@genus:root: 78> 
+@genus:root: 78> # !TODO! Task 10
+@genus:root: 79> #set_dont_use AOI22xp33_ASAP7_75t_L true
+@genus:root: 80> 
+@genus:root: 80> read_hdl ${RTL_LIST}
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'sha256.v'.
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'sha256_core.v'.
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'sha256_k_constants.v'.
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'sha256_w_mem.v'.
+@genus:root: 81> exit
+
+Lic Summary:
+[09:09:43.017595] Cdslmd servers: ece-cadence-lic
+[09:09:43.541904] Feature usage summary:
+[09:09:43.541905] Genus_Synthesis  
+Normal exit.

@@ -1,0 +1,28 @@
+# Cadence Genus(TM) Synthesis Solution, Version 25.12-s067_1, built Nov 17 2025 13:10:10
+
+# Date: Fri Mar 06 09:10:03 2026
+# Host: engr-r940s01.engr.uidaho.edu (x86_64 w/Linux 5.14.0-611.16.1.el9_7.x86_64) (20cores*80cpus*4physical cpus*Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz 28160KB)
+# OS:   Red Hat Enterprise Linux 9.7 (Plow)
+
+source ../scripts/genus.tcl
+# entering suspend mode
+create_clock -name "clk" -period 1000 [get_ports clk]
+syn_generic
+report_timing
+report_power
+write_netlist -generic sha__generic.v
+write_netlist -generic sha_generic.v
+write_netlist -generic -verilog sha256 sha_generic.v
+write_netlist -generic -verilog sha256
+write_netlist -generic  sha256
+write_hdl -generic sha_256_generic.v
+write_hdl -generic > sha_256_generic.v
+syn_map
+report_timing
+report_clocks
+syn_opt
+report_timing
+report_area
+report clocks > ./$DESIGN.clocks.rep
+write_netlist > sha256_mappped.v
+exit

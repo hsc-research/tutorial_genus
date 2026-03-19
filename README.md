@@ -20,7 +20,7 @@ As you follow along this tutorial, in many places you will be asked to write dow
 # Tasks
 ## Task 1 - Starting the tool
 ### Configuration ###
-The path to Genus on the UI server is provided. So, directly type `genus` to invoke the tool.
+A script for configuring the path to Genus on CMU servers is provided. The script is called genus.sh and it has to be sourced once for every session/terminal that you open. To source it, type `source genus.sh`
 
 ### Loading ###
 Make sure you can start Genus. If your setup is right, typing `genus` on a terminal will start the tool. To exit the tool, type exit or press `CTRL+C` twice. If the installation is correct, you will see something like this on the screen:
@@ -99,7 +99,7 @@ There is also an analogous command for the outputs of our block. The command loo
 `set_output_delay -clock clk delay_value [all_outputs]`
 > How to interpret this command: we are telling Genus that all outputs of our design have a relationship with a clock named "clk" and that this relationship has to be respected. This means that every output must become available (stable) delay_value time units before the next clock edge. This amount is discounted from our timing window when doing timing analysis.
 
-Go ahead and apply these commands to your design in the same Genus session. We are gonna use a value of 300ps for input and output delays. These numbers are a guesstimate because we do not know the environment in which our block will be operating. In a more realistic design, we would have to understand the SoC-related or board-related constraints that apply to the inputs and outputs.
+Go ahead and apply these commands to your design in the same Genus session. We will be adding these commans to a constraint file with the extension of .sdc. We are gonna use a value of 300ps for input and output delays. These numbers are a guesstimate because we do not know the environment in which our block will be operating. In a more realistic design, we would have to understand the SoC-related or board-related constraints that apply to the inputs and outputs.
 
 `set_input_delay -clock clk 300 [all_inputs]`
 

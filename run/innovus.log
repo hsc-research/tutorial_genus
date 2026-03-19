@@ -1,0 +1,95 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v25.12-s079_1, built Tue Nov 18 12:56:37 PST 2025
+Options:	
+Date:		Tue Mar 10 19:27:23 2026
+Host:		engr-r940s01.engr.uidaho.edu (x86_64 w/Linux 5.14.0-611.16.1.el9_7.x86_64) (20cores*80cpus*Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz 28160KB)
+OS:		Red Hat Enterprise Linux 9.7 (Plow)
+
+License:
+		[19:27:23.481729] Configured Lic search path (25.01-s002): 5280@ece-cadence-lic.ece.uidaho.edu
+
+		invs	Innovus Implementation System	INVS100	25.1
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+
+**Info: Common UI will be the default UI for innovus in the next major release. Please use -legacy_ui when invoking innovus if you wish to continue to use legacy UI.
+Change the soft stacksize limit to 0.2%RAM (2062 mbytes). Set global soft_stack_size_limit to change the value.
+Info: Process UID = 4088614 / 4ed1cf49-e1ee-4b62-b695-bd609ff34610 / w9WgJ8XNqV
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> win
+**WARN: (IMPOAX-793):	Problem in processing library definition file /tools/cadence/installs/IC251/share/cdssetup/dfII/cds.lib - *WARNING* '/tools/cadence/installs/IC251/share/cdssetup/dfII/cds.lib', Line 8: Cannot read file '/tools/cadence/pdk/gpdk045_v_6_0/gpdk045/gsclib045_svt_v4.8/gsclib045_tech'.
+.
+Innovus terminated by internal (ABORT) error/signal...
+Crashing Thread ID: 0
+------------------------------------------------------------
+*** Stack trace:
+*** Stack trace:
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus[0x25b329ce]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus(syStackTrace+0xae)[0x25b32f30]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus[0xe72fc82]
+/lib64/libc.so.6(+0x3fc2f)[0x7f02a223fc2f]
+/lib64/libc.so.6(+0x8d02c)[0x7f02a228d02c]
+/lib64/libc.so.6(raise+0x15)[0x7f02a223fb85]
+/lib64/libc.so.6(abort+0xd2)[0x7f02a2229872]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/TPtools/libstdc++6/lib/64bit/libstdc++.so.6(+0xa4bca)[0x7f02be8a4bca]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/TPtools/libstdc++6/lib/64bit/libstdc++.so.6(+0xb4319)[0x7f02be8b4319]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/TPtools/libstdc++6/lib/64bit/libstdc++.so.6(_ZSt9terminatev+0x14)[0x7f02be8b4384]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/TPtools/libstdc++6/lib/64bit/libstdc++.so.6(__cxa_throw+0x47)[0x7f02be8b45d7]
+/tools/cadence/installs/IC251/oa_v22.62.018/lib/lnx86/opt/liboaDM.so(+0x79962)[0x7f0246805962]
+/tools/cadence/installs/IC251/oa_v22.62.018/lib/lnx86/opt/liboaDM.so(_ZN12OpenAccess_415oaLibDefListTbl7setModeEjc+0x9e)[0x7f024684479e]
+/tools/cadence/installs/IC251/oa_v22.62.018/lib/lnx86/opt/liboaDM.so(_ZN12OpenAccess_415oaLibDefListTbl3getERKNS_8oaStringEc+0x5d)[0x7f0246844aad]
+/tools/cadence/installs/IC251/oa_v22.62.018/lib/lnx86/opt/liboaDM.so(_ZN12OpenAccess_412oaLibDefList3getERKNS_8oaStringEc+0x4a)[0x7f0246844c2a]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/../../lib/64bit/libinnovusoax22.so(_Z20iterateAllLibDefListPN12OpenAccess_412oaLibDefListERNS_8oaStringE+0xbb)[0x7f0245670a4b]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/../../lib/64bit/libinnovusoax22.so(_Z20iterateAllLibDefListPN12OpenAccess_412oaLibDefListERNS_8oaStringE+0xc6)[0x7f0245670a56]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/../../lib/64bit/libinnovusoax22.so(dbGetG2LibsString+0x9c)[0x7f0245670b9c]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus[0x1da2b111]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus(TclInvokeStringCommand+0x79)[0x3868b679]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus(TclNRRunCallbacks+0x67)[0x3868f9b7]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus(TclEvalEx+0xa29)[0x386912b9]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus(Tcl_CDNSEvalEx+0x12)[0x38691b32]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus(Tcl_Eval+0x14)[0x38691b64]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus(_Z10qtfTclEvalPcbb+0xe8)[0x239eefa8]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus(_ZN9uisAction12fExecCommandEv+0x521)[0x23a05201]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Core.so.5(+0x316643)[0x7f02bab16643]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Widgets.so.5(_ZN7QAction9triggeredEb+0x31)[0x7f02ba1858a1]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Widgets.so.5(_ZN7QAction8activateENS_11ActionEventE+0xaa)[0x7f02ba18826a]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Widgets.so.5(+0x2fd261)[0x7f02ba2fd261]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Widgets.so.5(+0x304f63)[0x7f02ba304f63]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Widgets.so.5(_ZN7QWidget5eventEP6QEvent+0x177)[0x7f02ba1caf97]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Widgets.so.5(_ZN19QApplicationPrivate13notify_helperEP7QObjectP6QEvent+0x7d)[0x7f02ba18b81d]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Widgets.so.5(_ZN12QApplication6notifyEP7QObjectP6QEvent+0x1381)[0x7f02ba193ba1]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Core.so.5(_ZN16QCoreApplication15notifyInternal2EP7QObjectP6QEvent+0x107)[0x7f02baae0657]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Widgets.so.5(_ZN19QApplicationPrivate14sendMouseEventEP7QWidgetP11QMouseEventS1_S1_PS1_R8QPointerIS0_Ebb+0x1aa)[0x7f02ba191d4a]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Widgets.so.5(+0x1e3644)[0x7f02ba1e3644]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Widgets.so.5(+0x1e6468)[0x7f02ba1e6468]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Widgets.so.5(_ZN19QApplicationPrivate13notify_helperEP7QObjectP6QEvent+0x7d)[0x7f02ba18b81d]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Core.so.5(_ZN16QCoreApplication15notifyInternal2EP7QObjectP6QEvent+0x107)[0x7f02baae0657]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Gui.so.5(_ZN22QGuiApplicationPrivate17processMouseEventEPN29QWindowSystemInterfacePrivate10MouseEventE+0x87b)[0x7f02baf5057b]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Gui.so.5(_ZN22QWindowSystemInterface22sendWindowSystemEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE+0xab)[0x7f02baf25dab]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/../../../lib/64bit/libtq.so(_ZN17TqEventDispatcher11processBaseE6QFlagsIN10QEventLoop17ProcessEventsFlagEE+0x22)[0x7f02c01f31a2]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus(Tcl_DoOneEvent+0xcf)[0x38755a8f]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/../../../lib/64bit/libtq.so(_ZN17TqEventDispatcher13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE+0x88)[0x7f02c01f3238]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Core.so.5(_ZN10QEventLoop4execE6QFlagsINS_17ProcessEventsFlagEE+0x11a)[0x7f02baadf24a]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/Qt/v5//64bit/lib/libcdsQt5Core.so.5(_ZN16QCoreApplication4execEv+0x81)[0x7f02baae6d71]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus(_Z12edi_app_initP10Tcl_Interp+0x357)[0xe819a47]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus(Tcl_MainEx+0x1b6)[0x38750356]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus(main+0x780)[0x79f2500]
+/lib64/libc.so.6(+0x2a60f)[0x7f02a222a60f]
+/lib64/libc.so.6(__libc_start_main+0x7f)[0x7f02a222a6bf]
+/tools/cadence/installs/DDI251/INNOVUS251/tools.lnx86/innovus/bin/64bit/innovus(_start+0x2d)[0xe72d55d]
+========================================
+                gdb
+========================================
+Using: gdb
+/home/sh.ySOnec: Permission denied.
+
+*** Memory Usage v#3 (Current mem = 2121.953M, initial mem = 982.645M) ***
+*** Message Summary: 1 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:46.4, real=0:01:37, mem=2122.0M) ---

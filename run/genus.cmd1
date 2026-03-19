@@ -1,0 +1,42 @@
+# Cadence Genus(TM) Synthesis Solution, Version 25.12-s067_1, built Nov 17 2025 13:10:10
+
+# Date: Fri Mar 06 08:54:13 2026
+# Host: engr-r940s01.engr.uidaho.edu (x86_64 w/Linux 5.14.0-611.16.1.el9_7.x86_64) (20cores*80cpus*4physical cpus*Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz 28160KB)
+# OS:   Red Hat Enterprise Linux 9.7 (Plow)
+
+init_lib_search_path
+init_lib_search_path -h
+set-db init_lib_search_path
+set_db init_lib_search_path
+set RTL_PATH"../sources/"
+set RTL_PATH"../sources/"
+set LIB_PATH "../lib/"
+set LEF_PATH"../lef/scaled/"
+set TLEF_PATH"../techlef/"
+set QRC_PATH "../qrc/"
+set DESIGN "sha256"
+set LIB_LIST {  asap7sc7p5t_AO_LVT_TT_nldm_211120.lib   asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib   asap7sc7p5t_OA_LVT_TT_nldm_211120.lib   asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib   asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib }
+set LEF_LIST { asap7_tech_4x_201209.lef asap7sc7p5t_28_L_4x_220121a.lef asap7sc7p5t_28_R_4x_220121a.lef asap7sc7p5t_28_SL_4x_220121a.lef}
+set QRC_FILE "qrcTechFile_typ03_scaled4xV06"
+set RTL_LIST {sha256.v sha256_core.v sha256_k_constants.v sha256_w_mem.v}
+set_db lp_power_analysis_effort
+read_hdl ${RTL_LIST}
+set RTL_LIST {sha256.v sha256_core.v sha256_k_constants.v sha256_w_mem.v}
+read_hdl ${RTL_LIST}
+set RTL_PATH"../sources/"
+set LIB_PATH "../lib/"
+set LEF_PATH"../lef/scaled/"
+set TLEF_PATH"../techlef/"
+set QRC_PATH "../qrc/"
+set DESIGN "sha256"
+set LIB_LIST {  asap7sc7p5t_AO_LVT_TT_nldm_211120.lib   asap7sc7p5t_INVBUF_LVT_TT_nldm_220122.lib   asap7sc7p5t_OA_LVT_TT_nldm_211120.lib   asap7sc7p5t_SEQ_LVT_TT_nldm_220123.lib   asap7sc7p5t_SIMPLE_LVT_TT_nldm_211120.lib }
+set LEF_LIST { asap7_tech_4x_201209.lef asap7sc7p5t_28_L_4x_220121a.lef asap7sc7p5t_28_R_4x_220121a.lef asap7sc7p5t_28_SL_4x_220121a.lef}
+set QRC_FILE "qrcTechFile_typ03_scaled4xV06"
+set RTL_LIST {sha256.v sha256_core.v sha256_k_constants.v sha256_w_mem.v}
+set_db init_lib_search_path "$LIB_PATH $LEF_PATH $TLEF_PATH"
+set_db init_hdl_search_path $RTL_PATH
+set_db / .library "$LIB_LIST"
+set_db lef_library "$LEF_LIST"
+set_db qrc_tech_file "$QRC_PATH/$QRC_FILE"
+read_hdl ${RTL_LIST}
+exit

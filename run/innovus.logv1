@@ -1,0 +1,50 @@
+[03/10 19:29:39      0s] 
+[03/10 19:29:39      0s] Cadence Innovus(TM) Implementation System.
+[03/10 19:29:39      0s] Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
+[03/10 19:29:39      0s] 
+[03/10 19:29:39      0s] Version:	v25.12-s079_1, built Tue Nov 18 12:56:37 PST 2025
+[03/10 19:29:39      0s] Options:	
+[03/10 19:29:39      0s] Date:		Tue Mar 10 19:29:39 2026
+[03/10 19:29:39      0s] Host:		engr-r940s01.engr.uidaho.edu (x86_64 w/Linux 5.14.0-611.16.1.el9_7.x86_64) (20cores*80cpus*Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz 28160KB)
+[03/10 19:29:39      0s] OS:		Red Hat Enterprise Linux 9.7 (Plow)
+[03/10 19:29:39      0s] 
+[03/10 19:29:39      0s] License:
+[03/10 19:29:39      0s] 		[19:29:39.481801] Configured Lic search path (25.01-s002): 5280@ece-cadence-lic.ece.uidaho.edu
+
+[03/10 19:29:39      0s] 		invs	Innovus Implementation System	INVS100	25.1
+[03/10 19:29:39      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[03/10 19:29:41      0s] 
+[03/10 19:29:41      0s] **Info: Common UI will be the default UI for innovus in the next major release. Please use -legacy_ui when invoking innovus if you wish to continue to use legacy UI.
+[03/10 19:30:01     21s] Memory management switch to non-aggressive memory release mode.
+[03/10 19:30:01     21s] 
+[03/10 19:30:01     21s] OS Mmap count monitoring thread starts. Limit of OS Mmap count is 65530
+[03/10 19:30:01     21s] 
+[03/10 19:30:06     25s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v25.12-s079_1 (64bit) 11/18/2025 12:56 (Linux 4.18.0-305.el8.x86_64)
+[03/10 19:30:13     31s] @(#)CDS: NanoRoute 25.12-s079_1 NR251112-0044/25_12-UB (database version 18.20.680) {superthreading v2.20}
+[03/10 19:30:13     31s] @(#)CDS: AAE 25.12-s028 (64bit) 11/18/2025 (Linux 4.18.0-305.el8.x86_64)
+[03/10 19:30:13     31s] @(#)CDS: CTE 25.12-s024_1 () Nov 12 2025 02:41:04 ( )
+[03/10 19:30:13     31s] @(#)CDS: SYNTECH 25.12-s006_1 () Oct 30 2025 11:18:17 ( )
+[03/10 19:30:13     31s] @(#)CDS: CPE v25.12-s020
+[03/10 19:30:13     31s] @(#)CDS: IQuantus/TQuantus 24.1.0-s365 (64bit) Mon Oct 13 00:44:28 PDT 2025 (Linux 4.18.0-305.el8.x86_64)
+[03/10 19:30:13     31s] @(#)CDS: OA 22.62-p016 Mon Oct 13 11:33:44 2025
+[03/10 19:30:13     31s] @(#)CDS: SGN 23.10-d005 (03-Oct-2023) (64 bit executable, TkQt5.15.9)
+[03/10 19:30:13     31s] @(#)CDS: RCDB 11.15.0
+[03/10 19:30:13     31s] @(#)CDS: STYLUS 25.12-e010_1 (08/20/2025 16:33 PDT)
+[03/10 19:30:13     31s] @(#)CDS: IntegrityPlanner-25.12-280 (25.12) (2025-11-11 08:41:39+0800)
+[03/10 19:30:13     31s] @(#)CDS: SYNTHESIS_ENGINE 25.12-s067
+[03/10 19:30:13     31s] @(#)CDS: TCDB v25.10-b001
+[03/10 19:30:13     31s] Create and set the environment variable TMPDIR to /home/zabideen/ASIC_Projects/tutorial_genus/run/innovus_temp_4092227_926aa8e4-2ce8-4457-b075-90b2fbcaed67_engr-r940s01.engr.uidaho.edu_zabideen_vGkXCZ.
+
+[03/10 19:30:13     31s] Change the soft stacksize limit to 0.2%RAM (2062 mbytes). Set global soft_stack_size_limit to change the value.
+[03/10 19:30:16     34s] Info: Process UID = 4092227 / 926aa8e4-2ce8-4457-b075-90b2fbcaed67 / 6PpsjVVBeO
+[03/10 19:30:22     40s] 
+[03/10 19:30:22     40s] **INFO:  MMMC transition support version v31-84 
+[03/10 19:30:22     40s] 
+[03/10 19:30:22     40s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[03/10 19:30:22     40s] <CMD> suppressMessage ENCEXT-2799
+[03/10 19:30:22     40s] <CMD> win
+[03/10 19:33:29     51s] 
+[03/10 19:33:29     51s] *** Memory Usage v#3 (Current mem = 2102.078M, initial mem = 983.426M) ***
+[03/10 19:33:29     51s] *** Message Summary: 0 warning(s), 0 error(s)
+[03/10 19:33:29     51s] 
+[03/10 19:33:29     51s] --- Ending "Innovus" (totcpu=0:00:52.4, real=0:03:50, mem=2102.1M) ---

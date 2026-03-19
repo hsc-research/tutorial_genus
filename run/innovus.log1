@@ -1,0 +1,30 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v25.12-s079_1, built Tue Nov 18 12:56:37 PST 2025
+Options:	
+Date:		Tue Mar 10 19:29:39 2026
+Host:		engr-r940s01.engr.uidaho.edu (x86_64 w/Linux 5.14.0-611.16.1.el9_7.x86_64) (20cores*80cpus*Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz 28160KB)
+OS:		Red Hat Enterprise Linux 9.7 (Plow)
+
+License:
+		[19:29:39.481801] Configured Lic search path (25.01-s002): 5280@ece-cadence-lic.ece.uidaho.edu
+
+		invs	Innovus Implementation System	INVS100	25.1
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+
+**Info: Common UI will be the default UI for innovus in the next major release. Please use -legacy_ui when invoking innovus if you wish to continue to use legacy UI.
+Change the soft stacksize limit to 0.2%RAM (2062 mbytes). Set global soft_stack_size_limit to change the value.
+Info: Process UID = 4092227 / 926aa8e4-2ce8-4457-b075-90b2fbcaed67 / 6PpsjVVBeO
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> win
+
+*** Memory Usage v#3 (Current mem = 2102.078M, initial mem = 983.426M) ***
+*** Message Summary: 0 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:52.4, real=0:03:50, mem=2102.1M) ---

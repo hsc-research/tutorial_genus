@@ -1,0 +1,3 @@
+Memory on crash                        rss(mb)     size(mb) capacity(mb)
+  esiSparseTermMarking                   0.000        0.000        0.000
+		 Total AAE memory 		= 0.000mb (0.000mb virtual) 

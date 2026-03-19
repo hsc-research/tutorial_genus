@@ -1,3 +1,4 @@
+# Script written by Samuel Pagliarini on April 2023. Works well in genus 21.10
 
 #look for !TODO! markers. these indicate locations where you should make changes to the script to exercise different aspects of synthesis
 
@@ -61,17 +62,23 @@ read_hdl ${RTL_LIST}
 # Elaborate the top level
 elaborate $DESIGN
 
+suspend
+
 # this is the preferred retiming flow, i.e., automated
 # !TODO! Task 11
-#set_db design:sha256 .retime true
+set_db design:sha256 .retime true
 
 # these are very simple constraints so we can do them inline here. in general, these are coded in a separate SDC file.
 # !TODO! Task 7, Task 10
-create_clock -name "clk" -period 1000 [get_ports clk]
+# add this "create_clock -name "clk" -period 1000 [get_ports clk]" to the constraint.sdc file in the sdc folder
+# Then we read the constraint file
 
 # !TODO! Task 4
+# add the following to update the constraint.sdc file in the sdc folder
 #set_input_delay -clock clk 300 [all_inputs]
 #set_output_delay -clock clk 300 [all_outputs]
+
+read_sdc ../sdc/constraint.sdc
 
 # GENERIC SYNTHESIS
 syn_generic
