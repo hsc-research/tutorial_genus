@@ -68,7 +68,8 @@ Next, let's have a look at area. There are two commands for that, `report_area` 
 
 > How to read this image: The design has a top-level module named sha256. The design contains 8372 standard cells which occupy 20884 um^2. This is a precise number, obtained by adding the area of each individual cell. Routing all of these cells will incur more area, which Genus estimates at 7679 um^2. This number is not precise since we do not have a layout at this point. The total area is the sum of the two areas. IMPORTANT: in academic papers, both cell area and total area are used and it is not always clear which one is which. It is always good to be clear about what you are reporting.
 
-![image](https://user-images.githubusercontent.com/50336652/230602147-7caebdb5-a91e-48f3-accb-ed7945ff52ae.png)
+<img width="437" height="236" alt="image" src="https://github.com/user-attachments/assets/acf0935a-4327-4a71-887c-ea9d94ddd314" />
+
 > How to read this image: The design uses cells from different libraries. This is not really relevant in this case because the library designers decided to separate their libraries into different files. In practical terms, there is only one standard cell library being used and it is for low Vth (LVT). Next, we see how the area is distributed among different cell types. Not surprisingly, flip-flops account for 52% of the area, which is really typical. Also remember that flip-flops are large cells, often the largest cell in a whole library.
 
 Finally, let's have a look at power. The command we are going to use is `report_power`. The command output looks like this:
