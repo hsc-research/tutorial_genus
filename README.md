@@ -64,7 +64,8 @@ Next, let's have a look at timing. The command we will be using is `report_timin
 
 Next, let's have a look at area. There are two commands for that, `report_area` and `report_gates`. You can think of the area report as a summary whereas the gates report is more complete. The result looks like this:
 
-![image](https://user-images.githubusercontent.com/50336652/230601880-d6b49032-ba56-4fd4-97cd-1023a52e79f7.png)
+<img width="551" height="168" alt="image" src="https://github.com/user-attachments/assets/96edeeae-aa74-4fcc-943f-98cc6f26fee7" />
+
 > How to read this image: The design has a top-level module named sha256. The design contains 8372 standard cells which occupy 20884 um^2. This is a precise number, obtained by adding the area of each individual cell. Routing all of these cells will incur more area, which Genus estimates at 7679 um^2. This number is not precise since we do not have a layout at this point. The total area is the sum of the two areas. IMPORTANT: in academic papers, both cell area and total area are used and it is not always clear which one is which. It is always good to be clear about what you are reporting.
 
 ![image](https://user-images.githubusercontent.com/50336652/230602147-7caebdb5-a91e-48f3-accb-ed7945ff52ae.png)
