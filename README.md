@@ -1,4 +1,4 @@
-<img width="1612" height="919" alt="image" src="https://github.com/user-attachments/assets/a791f1e3-6f53-4cfa-8b96-23217e072dd1" /># Genus tutorial
+# Genus tutorial
 A short and on point tutorial on how to use an ASIC logic synthesis tool and how to get the best out of it. The step-by-step guide is provided here in README.md. There is also a set of questions available in QUESTIONS.md. A reference script is provided in genus.tcl.
 
 # Preliminaries
@@ -26,9 +26,9 @@ A script for configuring the path to Genus on CMU servers is provided. The scrip
 Make sure you can start Genus. If your setup is right, typing `genus` on a terminal will start the tool. To exit the tool, type exit or press `CTRL+C` twice. If the installation is correct, you will see something like this on the screen:
 <img width="1612" height="919" alt="image" src="https://github.com/user-attachments/assets/c8a07fab-ff7d-4705-91ec-650495de53c0" />
 
-It is also important to make sure you have access to Genus documentation. Inside the Genus terminal, type `cdnshelp`. If your setup is properly installed, a new window will open with Cadence's help navigation system. It looks like this: 
+It is also important to make sure you have access to Genus documentation. Inside the Genus terminal, type `/tools/cadence/installs/IC251/tools.lnx86/bin/cda`. If your setup is properly installed, a new window will open with Cadence's help navigation system. It looks like this: 
 
-![image](https://user-images.githubusercontent.com/50336652/229774697-710f598b-7d57-4f48-9c0d-6020b84b9d8e.png)
+<img width="1915" height="938" alt="image" src="https://github.com/user-attachments/assets/1c75beae-4df8-4ffb-872a-eaedcc7dfc9f" />
 
 On the top part of the window there is a search box. You can use it to find specific commands or terms. For instance, try searching for the word "clock". It will give you thousands of hits. You can search for the command "report_clocks" and then the search results will be much narrower.
 
@@ -41,7 +41,7 @@ Genus produces a lot of log files, by default these are stored in the folder whe
 
 This is what the folder structure looks like in this tutorial:
 
-![image](https://user-images.githubusercontent.com/50336652/229774072-f75e9bed-9db7-40cb-95dd-443b0389aa7f.png)
+<img width="112" height="135" alt="image" src="https://github.com/user-attachments/assets/141ac6ef-fcca-4fdd-b900-de2bcfcc70e4" />
 
 Most of the names are self explanatory. Take some time to browse the folder structure and see what files are there. Do you know what is the purpose of a LEF/LIB/QRC file? LEF files and LIB files are text, you can open them in a text editor and follow the structure. QRC files are binary.
 
@@ -52,13 +52,13 @@ We are now going to do some analysis. Typically we are interested in captured ti
 
 First, we will check whether the design is passing timing. The script defines a clock frequency of 1GHz, which is not very aggressive for this 7nm technology. In order to check whether our design is really taking a 1GHz clock into consideration, we issue the command `report_clocks`. The result looks like this:
 
-![image](https://user-images.githubusercontent.com/50336652/230015772-d1033f4f-05bb-49a8-bed1-1565beb72cd1.png)
+<img width="459" height="479" alt="image" src="https://github.com/user-attachments/assets/a7c43c4d-0322-4657-b2f6-959e85d5d092" />
 
 > How to read this image: There is a single clock name clk. It's period is 1000ps (1ns), which means a frequency of 1GHz. There is a single clock domain and a total of 1806 registers (flip-flops) are connected to this clock. The duty cycle is 50/50, meaning that the clock is assumed to be a perfect square wave.
 
 Next, let's have a look at timing. The command we will be using is `report_timing`. The report looks like this (it may not be a perfect match to your result):
 
-![image](https://user-images.githubusercontent.com/50336652/229806406-71bacc2d-e75a-4855-8486-6b49684f7de8.png)
+<img width="803" height="851" alt="image" src="https://github.com/user-attachments/assets/103a9518-883b-4762-af48-94e17d1e847f" />
 
 > How to read this image: The critical path does not meet the timing constraint. There is a negative slack of 73ps, which means the timed path takes 1073ps to settle, but we only have 1000ps. We can also see where the path starts (core_e_reg_reg[10], clock pin) and where it ends (core_a_reg_reg[17], data pin) -- this is a reg-to-reg path. The report also tells us that the end-point flip-flop has a 24ps setup requirement, meaning that data has to be stable for 24ps for the flip-flop to be able to reliably capture it. This is why in the timing calculation this appears with a negative sign, because we "lose" 24ps for latching. We can also see that the datapath itself takes 1049ps. The individual contribution of each cell that is part of the path is shown as a table. We can also see that most cells are X2, meaning that they are upsized. There are also some outliers that are X12 and X16. All of these are indicators that the synthesis engine worked really hard on this path.
 
