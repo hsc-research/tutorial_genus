@@ -74,7 +74,8 @@ Next, let's have a look at area. There are two commands for that, `report_area` 
 
 Finally, let's have a look at power. The command we are going to use is `report_power`. The command output looks like this:
 
-![image](https://user-images.githubusercontent.com/50336652/230602246-c17b49aa-a6ea-4022-9a44-78025f8d7ac2.png)
+<img width="469" height="455" alt="image" src="https://github.com/user-attachments/assets/016baee2-e761-4c8a-a410-9bbc35d511dc" />
+
 > How to read this image: Power consumptions has 3 components: Leakage (or static), Internal, and Switching. Internal and switching are dynamic in nature, meaning that this is power consumed when the circuit is actively computing. In other words, the power consumption here depends on the inputs of the circuit. Internal power is the power consumed by the standard cells themselves. Switching power is related to capacitance charge/discharge of the wires that connect the cells together. Power consumption can come from many components of the circuit, including memories, flip-flops, latches, logic, black boxes, clock distribution, pads, and power management. Because we are not doing physical synthesis, we only have a few of those.
 
 Most of the time we will be interested in checking area, timing, and power reports, so go ahead and remove the comments at the end of script (look for !TODO! markers in the genus.tcl script). This way we will always get the values reported at the end of the synthesis run, any time we run it.
